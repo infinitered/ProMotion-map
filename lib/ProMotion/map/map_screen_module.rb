@@ -3,7 +3,6 @@ module ProMotion
     attr_accessor :mapview
 
     def screen_setup
-      check_mapkit_included
       self.mapview ||= add MKMapView.new, {
         frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height),
         resize: [ :width, :height ],
@@ -18,10 +17,6 @@ module ProMotion
     def view_will_appear(animated)
       super
       update_annotation_data
-    end
-
-    def check_mapkit_included
-      PM.logger.error "You must add MapKit and CoreLocation to your project's frameworks in the Rakefile." unless defined?(CLLocationCoordinate2D)
     end
 
     def check_annotation_data
