@@ -1,0 +1,34 @@
+GIT
+  remote: https://github.com/clearsightstudio/ProMotion.git
+  revision: 45ff5a225137013d8bf9c3fd50ec2738d2122b8d
+  branch: pm2
+  specs:
+    ProMotion (2.0.0)
+      dbt (~> 1.1.4)
+      methadone (~> 1.4)
+
+PATH
+  remote: .
+  specs:
+    ProMotion-map (0.1.0)
+      ProMotion (~> 2.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dbt (1.1.4)
+    methadone (1.4.0)
+      bundler
+    motion-redgreen (0.1.0)
+    motion-stump (0.3.2)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ProMotion!
+  ProMotion-map!
+  motion-redgreen (~> 0.1)
+  motion-stump (~> 0.3)
+  rake
