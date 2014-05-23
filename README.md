@@ -1,198 +1,218 @@
-# ProMotion-push
+# ProMotion-map
 
-ProMotion-push is push notification support, extracted from the 
+ProMotion-map is push notification support, extracted from the 
 popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
 
 ## Installation
 
 ```ruby
-gem 'ProMotion-push'
+gem 'ProMotion-map'
 ```
 
 ## Usage
 
-### AppDelegate
+Easily create a map screen, complete with annotations.
 
-ProMotion-push adds a few methods to PM::Delegate.
+*Has all the methods of PM::Screen*
 
 ```ruby
-# app/app_delegate.rb
-class AppDelegate < PM::Delegate
-
-  def on_load(app, options)
-    register_for_push_notifications :badge, :sound, :alert, :newsstand
-    PM.logger.info registered_push_notifications
-    # ...
+class MyMapScreen < PM::MapScreen
+  title "My Map"
+  start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
+  
+  def on_appear
+    update_annotation_data
+  end
+  
+  def annotation_data
+    [{
+      longitude: -82.965972900391,
+      latitude: 35.090648651123,
+      title: "Rainbow Falls",
+      subtitle: "Nantahala National Forest"
+    },{
+      longitude: -82.966093558105,
+      latitude: 35.092520895652,
+      title: "Turtleback Falls",
+      subtitle: "Nantahala National Forest"
+    },{
+      longitude: -82.95916,
+      latitude: 35.07496,
+      title: "Windy Falls"
+    },{
+      longitude: -82.943031505056,
+      latitude: 35.102516828489,
+      title: "Upper Bearwallow Falls",
+      subtitle: "Gorges State Park"
+    },{
+      longitude: -82.956244328014,
+      latitude: 35.085548421623,
+      title: "Stairway Falls",
+      subtitle: "Gorges State Park",
+      your_param: "CustomWhatever"
+    }, {
+      longitude: -82.965972900391,
+      latitude: 35.090648651123,
+      title: "Rainbow Falls",
+      subtitle: "Nantahala National Forest",
+      image: UIImage.imageNamed("custom-pin")
+    }]
   end
 
-  def on_unload
-    unregister_for_push_notifications
-  end
-
-  def on_push_registration(token, error)
-    PM.logger.info token.description
-  end
-
-  def on_push_notification(notification, launched)
-    PM.logger.info notification.to_json
-  end
+  
 end
 ```
 
-#### register_for_push_notifications(*types)
-
-Method you can call to register your app for push notifications. You'll also want to implement
-`on_push_notification` and `on_push_registration`.
+Here's a neat way to zoom into a specific marker in an animated fashion and then select the marker:
 
 ```ruby
-def on_load(app, options)
-    register_for_push_notifications :badge, :sound, :alert, :newsstand # or :all
-    # ...
+def zoom_to_marker(marker)
+  set_region region(coordinate: marker.coordinate, span: [0.05, 0.05])
+  select_annotation marker
 end
 ```
 
-#### unregister_for_push_notifications
+---
 
-Unregisters from all push notifications.
+### Methods
+
+#### annotation_data
+      
+Method that is called to get the map's annotation data and build the map. If you do not want any annotations, simply return an empty array.
 
 ```ruby
-def logging_out
-  unregister_for_push_notifications
+def annotation_data
+  [{
+    longitude: -82.965972900391,
+    latitude: 35.090648651123,
+    title: "Rainbow Falls",
+    subtitle: "Nantahala National Forest"
+  },{
+    longitude: -82.965972900391,
+    latitude: 35.090648651123,
+    title: "Rainbow Falls",
+    subtitle: "Nantahala National Forest",
+    image: "custom-pin" # Use your own custom image. It will be converted to a UIImage automatically.
+  },{
+    longitude: -82.966093558105,
+    latitude: 35.092520895652,
+    title: "Turtleback Falls",
+    subtitle: "Nantahala National Forest"
+  },{
+    longitude: -82.95916,
+    latitude: 35.07496,
+    title: "Windy Falls"
+  },{
+    longitude: -82.943031505056,
+    latitude: 35.102516828489,
+    title: "Upper Bearwallow Falls",
+    subtitle: "Gorges State Park"
+  },{
+    longitude: -82.956244328014,
+    latitude: 35.085548421623,
+    title: "Stairway Falls",
+    subtitle: "Gorges State Park",
+    your_param: "CustomWahtever"
+  }]
 end
 ```
 
-**NOTE:** From a screen you'll have to reference the app_delegate:
+You may pass whatever properties you want in the annotation hash, but `:longitude`, `:latitude`, and `:title` are required.
+
+Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
+
+You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.annotation_params[:your_param]`.
+
+#### update_annotation_data
+
+Forces a reload of all the annotations
+
+#### center
+
+Returns a `CLLocation2D` instance with the center coordinates of the map.
+
+#### center=({latitude: Float, longitude: Float, animated: Boolean})
+
+Sets the center of the map. `animated` property defaults to `true`.
+
+#### annotations
+
+Returns an array of all the annotations.
+
+#### select_annotation(annotation, animated=true)
+
+Selects a single annotation.
+
+#### select_annotation_at(annotation_index, animated=true)
+
+Selects a single annotation using the annotation at the index of your `annotation_data` array.
+
+#### selected_annotations
+
+Returns an array of annotations that are selected. If no annotations are selected, returns `nil`.
+
+#### deselect_annotations(animated=false)
+
+Deselects all selected annotations.
+
+#### add_annotation(annotation)
+
+Adds a new annotation to the map. Refer to `annotation_data` (above) for hash properties.
+
+#### add_annotations(annotations)
+
+Adds more than one annotation at a time to the map.
+
+#### clear_annotations
+
+Removes all annotations from the `MapScreen`.
+
+#### zoom_to_fit_annotations(animated=true)
+
+Changes the zoom and center point of the `MapScreen` to fit all the annotations.
+
+#### set_region(region, animated=true)
+
+Sets the region of the `MapScreen`. `region` should be an instance of `MKCoordinateRegion`.
+
+#### region(params)
+
+Helper method to create an `MKCoordinateRegion`. Expects a hash in the form of:
 
 ```ruby
-def log_out
-  app_delegate.unregister_for_push_notifications
+my_region = region({
+  coordinate:{
+    latitude: 35.0906, 
+    longitude: -82.965
+  },
+  # span is the latitude and longitude delta
+  span: [0.5, 0.5]
+})
+```
+
+---
+
+### Class Methods
+
+#### start_position(latitude: Float, longitude: Float, radius: Float)
+    
+Class method to set the initial starting position of the `MapScreen`.
+
+```ruby
+class MyMapScreen < PM::MapScreen
+  start_position latitude: 36.10, longitude: -80.26, radius: 4
 end
 ```
 
-#### on_push_registration(token, error)
+`radius` is the zoom level of the map in miles (default: 10).
 
-Method that is called after you attempt to register for notifications. Either `token` or `error`
-will be provided.
+---
 
-```ruby
-def on_push_registration(token, error)
-  if token
-    # Push token to your server
-  else
-    # Display the error
-  end
-end
-```
+### Accessors
 
-#### on_push_notification(notification, launched)
+#### mapview
 
-Method called when the app is launched via a notification or a notification is received
-in-app. `notification` is a
-[PM::PushNotification](https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::PushNotification)
-object which is a thin wrapper around the notification hash provided by iOS. `launched`
-is a boolean letting you know whether the notification initiated your app's launch (true) or
-if your app was already running (false).
-
-```ruby
-def on_push_notification(notification, launched)
-  notification.to_json  # => '{"aps":{"alert":"My test notification","badge":3,"sound":"default"}, "custom": "Jamon Holmgren"}'
-  notification.alert    # => "My test notification"
-  notification.badge    # => 3
-  notification.sound    # => "default"
-  notification.custom   # => "Jamon Holmgren"
-end
-```
-
-#### registered_push_notifications
-
-Returns the currently registered notifications as an array of symbols.
-
-```ruby
-def some_method
-  registered_push_notifications # => [ :badge, :sound, :alert, :newsstand ]
-end
-```
-
-
-### ProMotion::PushNotification
-
-You receive this object in your AppDelegate's `on_push_notification` method.
-
-```ruby
-def on_push_notification(notification, launched)
-  notification.to_json  # => '{"aps":{"alert":"My test notification","badge":3,"sound":"default"}, "custom": "Jamon Holmgren"}'
-  notification.alert    # => "My test notification"
-  notification.badge    # => 3
-  notification.sound    # => "default"
-  notification.custom   # => "Jamon Holmgren"
-end
-```
-
-The best way to test push notifications is on a device, but it's often useful to test 
-them in the simulator. We provide a way to do that from the REPL or in code.
-
-```ruby
-# In REPL
-PM::PushNotification.simulate(alert: "My test", badge: 4, sound: "default", custom: "custom", launched: true)
-```
-```ruby
-def on_push_notification(notification, launched)
-  notification.aps # => { alert: "My test", badge: sound: "default"}
-  notification.alert # => "My test"
-  notification.custom # => 'custom'
-end
-```
-
-#### alert
-
-Returns the alert string for the push notification object.
-
-```ruby
-notification.alert    # => "My test notification"
-```
-
-#### badge
-
-Returns the badge number for the push notification object, if it exists.
-
-```ruby
-notification.badge    # => 3
-```
-
-#### sound
-
-Returns a string representing the sound for the push notification object, if it exists.
-
-```ruby
-notification.sound    # => "sound"
-```
-
-#### to_json
-
-Returns a json string representation of the push notification object.
-
-```ruby
-notification.to_json  # => '{"aps":{"alert":"My test notification","sound":"default"},"custom":"something custom"}'
-```
-
-#### (custom methods)
-
-A `method_missing` implementation will respond to all methods that are keys in the notification hash. It
-will raise a NoMethodError if there isn't a corresponding key.
-
-```ruby
-# Given: '{"aps":{"alert":"My test notification","sound":"default"}, "my_custom_key": "My custom data"}'
-notification.my_custom_key # => "My custom data"
-notification.no_key_here # => NoMethodError
-```
-
-#### notification
-
-Returns the raw notification object provided by iOS.
-
-```ruby
-notification.notification # => Hash
-```
+Reference to the created UIMapView.
 
 ## Contributing
 
