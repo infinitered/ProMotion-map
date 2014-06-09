@@ -1,6 +1,6 @@
 # ProMotion-map
 
-ProMotion-map is push notification support, extracted from the 
+ProMotion-map provides a PM::MapScreen, extracted from the 
 popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
 
 ## Installation
