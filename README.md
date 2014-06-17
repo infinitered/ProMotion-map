@@ -1,6 +1,6 @@
 # ProMotion-map
 
-ProMotion-map provides a PM::MapScreen, extracted from the 
+ProMotion-map provides a PM::MapScreen, extracted from the
 popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
 
 ## Installation
@@ -19,11 +19,11 @@ Easily create a map screen, complete with annotations.
 class MyMapScreen < PM::MapScreen
   title "My Map"
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
-  
+
   def on_appear
     update_annotation_data
   end
-  
+
   def annotation_data
     [{
       longitude: -82.965972900391,
@@ -59,7 +59,7 @@ class MyMapScreen < PM::MapScreen
     }]
   end
 
-  
+
 end
 ```
 
@@ -77,7 +77,7 @@ end
 ### Methods
 
 #### annotation_data
-      
+
 Method that is called to get the map's annotation data and build the map. If you do not want any annotations, simply return an empty array.
 
 ```ruby
@@ -120,6 +120,8 @@ end
 You may pass whatever properties you want in the annotation hash, but `:longitude`, `:latitude`, and `:title` are required.
 
 Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
+
+Use `:left_accessory` and `:right_accessory` to specify a custom accessory, like a button.
 
 You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.annotation_params[:your_param]`.
 
@@ -182,7 +184,7 @@ Helper method to create an `MKCoordinateRegion`. Expects a hash in the form of:
 ```ruby
 my_region = region({
   coordinate:{
-    latitude: 35.0906, 
+    latitude: 35.0906,
     longitude: -82.965
   },
   # span is the latitude and longitude delta
@@ -195,7 +197,7 @@ my_region = region({
 ### Class Methods
 
 #### start_position(latitude: Float, longitude: Float, radius: Float)
-    
+
 Class method to set the initial starting position of the `MapScreen`.
 
 ```ruby

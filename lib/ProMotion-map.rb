@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 unless defined?(Motion::Project::Config)
   raise "ProMotion-map must be required within a RubyMotion project."
 end

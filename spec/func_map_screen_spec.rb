@@ -1,12 +1,12 @@
 describe "ProMotion::TestMapScreen functionality" do
-  tests PM::TestMapScreen
+  tests TestMapScreen
 
-  # Override controller to properly instantiate
+  def map_screen
+    @map_screen ||= TestMapScreen.new(nav_bar: true)
+  end
+
   def controller
-    rotate_device to: :portrait, button: :bottom
-    @map ||= TestMapScreen.new(nav_bar: true)
-    @map.will_appear
-    @map.navigationController
+    map_screen.navigationController
   end
 
   def add_image_annotation
@@ -17,73 +17,73 @@ describe "ProMotion::TestMapScreen functionality" do
       subtitle: "Image pin subtitle",
       image: UIImage.imageNamed("test.png")
     }
-    @map.annotations.count.should == 5
-    @map.add_annotation ann
-    @map.set_region @map.region(coordinate: @map.annotations.last.coordinate, span: [0.05, 0.05])
+    map_screen.annotations.count.should == 5
+    map_screen.add_annotation ann
+    map_screen.set_region map_screen.region(coordinate: map_screen.annotations.last.coordinate, span: [0.05, 0.05])
   end
 
   after do
-    @map = nil
+    map_screen = nil
   end
 
   it "should have a navigation bar" do
-    @map.navigationController.should.be.kind_of(UINavigationController)
+    map_screen.navigationController.should.be.kind_of(UINavigationController)
   end
 
   it "should have the map properly centered" do
-    center_coordinate = @map.center
+    center_coordinate = map_screen.center
     center_coordinate.latitude.should.be.close 35.090648651123, 0.02
     center_coordinate.longitude.should.be.close -82.965972900391, 0.02
   end
 
   it "should move the map center" do
-    @map.center = {latitude: 35.07496, longitude: -82.95916, animated: true}
+    map_screen.center = {latitude: 35.07496, longitude: -82.95916, animated: true}
 
     wait 0.75 do
-      center_coordinate = @map.center
+      center_coordinate = map_screen.center
       center_coordinate.latitude.should.be.close 35.07496, 0.001
       center_coordinate.longitude.should.be.close -82.95916, 0.001
     end
   end
 
   it "should select an annotation" do
-    @map.selected_annotations.should == nil
-    @map.select_annotation @map.annotations.first
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation map_screen.annotations.first
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
+      map_screen.selected_annotations.count.should == 1
     end
   end
 
   it "should select an annotation by index" do
-    @map.selected_annotations.should == nil
-    @map.select_annotation_at 2
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation_at 2
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
-      @map.selected_annotations[0].should == @map.promotion_annotation_data[2]
+      map_screen.selected_annotations.count.should == 1
+      map_screen.selected_annotations[0].should == map_screen.promotion_annotation_data[2]
     end
   end
 
   it "should select another annotation and check that the title is correct" do
-    @map.selected_annotations.should == nil
-    @map.select_annotation @map.annotations[1]
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation map_screen.annotations[1]
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
+      map_screen.selected_annotations.count.should == 1
     end
 
-    @map.selected_annotations.first.title.should == "Turtleback Falls"
-    @map.selected_annotations.first.subtitle.should == "Nantahala National Forest"
+    map_screen.selected_annotations.first.title.should == "Turtleback Falls"
+    map_screen.selected_annotations.first.subtitle.should == "Nantahala National Forest"
 
   end
 
   it "should deselect selected annotations" do
-    @map.select_annotation @map.annotations.last
+    map_screen.select_annotation map_screen.annotations.last
     wait 0.75 do
-      # @map.selected_annotations.count.should == 1
+      # map_screen.selected_annotations.count.should == 1
     end
 
-    @map.deselect_annotations
+    map_screen.deselect_annotations
     wait 0.75 do
-      @map.selected_annotations.should == nil
+      map_screen.selected_annotations.should == nil
     end
   end
 
@@ -93,11 +93,11 @@ describe "ProMotion::TestMapScreen functionality" do
       latitude: 35.092520895652,
       title: "Something Else"
     }
-    @map.annotations.count.should == 5
-    @map.add_annotation ann
-    @map.annotations.count.should == 6
-    @map.set_region @map.region(coordinate: @map.annotations.last.coordinate, span: [0.05, 0.05])
-    @map.select_annotation @map.annotations.last
+    map_screen.annotations.count.should == 5
+    map_screen.add_annotation ann
+    map_screen.annotations.count.should == 6
+    map_screen.set_region map_screen.region(coordinate: map_screen.annotations.last.coordinate, span: [0.05, 0.05])
+    map_screen.select_annotation map_screen.annotations.last
   end
 
   it "should be able to overwrite all annotations" do
@@ -110,20 +110,20 @@ describe "ProMotion::TestMapScreen functionality" do
       latitude: 35.2187218,
       title: "My Cool Pin"
     }]
-    @map.annotations.count.should == 5
-    @map.add_annotations anns
-    @map.annotations.count.should == 2
+    map_screen.annotations.count.should == 5
+    map_screen.add_annotations anns
+    map_screen.annotations.count.should == 2
   end
 
   it "should add an image based annotation" do
     add_image_annotation
-    @map.annotations.count.should == 6
+    map_screen.annotations.count.should == 6
 
     # Checking that it conforms to the MKAnnotation protocol manually since this doesn't work in iOS 7:
-    #  @map.annotations.last.conformsToProtocol(MKAnnotation).should.be.true
+    #  map_screen.annotations.last.conformsToProtocol(MKAnnotation).should.be.true
     # See this 8 month old bug - https://github.com/siuying/rubymotion-protocol-bug
 
-    checking = @map.annotations.last
+    checking = map_screen.annotations.last
     %w(title subtitle coordinate).each do |method|
       defined?(checking.send(method.to_sym)).nil?.should.be.false
     end
@@ -131,32 +131,64 @@ describe "ProMotion::TestMapScreen functionality" do
 
   it "should select an image annotation" do
     add_image_annotation
-    @map.selected_annotations.should == nil
-    @map.select_annotation @map.annotations.last
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation map_screen.annotations.last
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
+      map_screen.selected_annotations.count.should == 1
     end
   end
 
   it "should select an image annotation by index" do
     add_image_annotation
-    @map.selected_annotations.should == nil
-    @map.select_annotation_at 5
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation_at 5
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
-      @map.selected_annotations[0].should == @map.promotion_annotation_data[5]
+      map_screen.selected_annotations.count.should == 1
+      map_screen.selected_annotations[0].should == map_screen.promotion_annotation_data[5]
     end
   end
 
   it "should select an image annotation and check that the title is correct" do
     add_image_annotation
-    @map.selected_annotations.should == nil
-    @map.select_annotation @map.annotations[5]
+    map_screen.selected_annotations.should == nil
+    map_screen.select_annotation map_screen.annotations[5]
     wait 0.75 do
-      @map.selected_annotations.count.should == 1
+      map_screen.selected_annotations.count.should == 1
     end
-    @map.selected_annotations.first.title.should == "My Cool Image Pin"
-    @map.selected_annotations.first.subtitle.should == "Image pin subtitle"
+    map_screen.selected_annotations.first.title.should == "My Cool Image Pin"
+    map_screen.selected_annotations.first.subtitle.should == "Image pin subtitle"
+  end
+
+  it "should allow setting a leftCalloutAccessoryView" do
+    btn = UIButton.new
+    ann = {
+      longitude: -82.965972900392,
+      latitude: 35.090648651124,
+      title: "My Cool Image Pin",
+      subtitle: "Image pin subtitle",
+      left_accessory: btn
+    }
+    map_screen.add_annotation ann
+    annot = map_screen.annotations.last
+    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
+    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v.leftCalloutAccessoryView.should == btn
+  end
+
+  it "should allow setting a rightCalloutAccessoryView" do
+    btn = UIButton.new
+    ann = {
+      longitude: -82.965972900392,
+      latitude: 35.090648651124,
+      title: "My Cool Image Pin",
+      subtitle: "Image pin subtitle",
+      right_accessory: btn
+    }
+    map_screen.add_annotation ann
+    annot = map_screen.annotations.last
+    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
+    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v.rightCalloutAccessoryView.should == btn
   end
 
 end
