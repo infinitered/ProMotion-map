@@ -5,7 +5,6 @@ module ProMotion
     def screen_setup
       self.mapview ||= add MKMapView.new, {
         frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height),
-        resize: [ :width, :height ],
         delegate: self
       }
 
@@ -114,23 +113,29 @@ module ProMotion
       @promotion_annotation_data = []
     end
 
-    def mapView(mapView, viewForAnnotation:annotation)
+    def annotation_view(map_view, annotation)
       return if annotation.is_a? MKUserLocation
 
       identifier = annotation.annotation_params[:identifier]
-      if view = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+      if view = map_view.dequeueReusableAnnotationViewWithIdentifier(identifier)
         view.annotation = annotation
       else
-        #Set the pin properties
+        # Set the pin properties
         if annotation.annotation_params[:image]
           view = MKAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
-          view.image =  annotation.annotation_params[:image]
         else
           view = MKPinAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
-          view.animatesDrop = annotation.annotation_params[:animates_drop]
-          view.pinColor = annotation.annotation_params[:pin_color]
         end
-        view.canShowCallout = annotation.annotation_params[:show_callout]
+      end
+      view.image = annotation.annotation_params[:image] if view.respond_to?("image=") && annotation.annotation_params[:image]
+      view.animatesDrop = annotation.annotation_params[:animates_drop] if view.respond_to?("animatesDrop=")
+      view.pinColor = annotation.annotation_params[:pin_color] if view.respond_to?("pinColor=")
+      view.canShowCallout = annotation.annotation_params[:show_callout] if view.respond_to?("canShowCallout=")
+      if annotation.annotation_params[:left_accessory]
+        view.leftCalloutAccessoryView = annotation.annotation_params[:left_accessory]
+      end
+      if annotation.annotation_params[:right_accessory]
+        view.rightCalloutAccessoryView = annotation.annotation_params[:right_accessory]
       end
       view
     end
@@ -170,7 +175,7 @@ module ProMotion
         bottomRight.latitude = [bottomRight.latitude, a.coordinate.latitude].min
       end
 
-      #Find the bounds of all the pins and set the mapView
+      #Find the bounds of all the pins and set the map_view
       coord = CLLocationCoordinate2D.new(
         topLeft.latitude - (topLeft.latitude - bottomRight.latitude) * 0.5,
         topLeft.longitude + (bottomRight.longitude - topLeft.longitude) * 0.5
@@ -213,7 +218,11 @@ module ProMotion
     end
 
     ########## Cocoa touch methods #################
-    def mapView(mapView, didUpdateUserLocation:userLocation)
+    def mapView(map_view, viewForAnnotation:annotation)
+      annotation_view(map_view, annotation)
+    end
+
+    def mapView(map_view, didUpdateUserLocation:userLocation)
       if self.respond_to?(:on_user_location)
         on_user_location(userLocation)
       else
