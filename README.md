@@ -1,5 +1,7 @@
 # ProMotion-map
 
+[![Gem Version](https://badge.fury.io/rb/ProMotion-map.svg)](http://badge.fury.io/rb/ProMotion-map) [![Build Status](https://travis-ci.org/clearsightstudio/ProMotion-map.svg)](https://travis-ci.org/clearsightstudio/ProMotion-map) [![Code Climate](https://codeclimate.com/github/clearsightstudio/ProMotion-map.png)](https://codeclimate.com/github/clearsightstudio/ProMotion-map)
+
 ProMotion-map provides a PM::MapScreen, extracted from the
 popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
 
