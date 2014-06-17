@@ -119,6 +119,20 @@ def annotation_data
 end
 ```
 
+All possible properties:
+
+```ruby
+{
+    longitude: -82.956244328014,
+    latitude: 35.085548421623,
+    title: "Stairway Falls",
+    subtitle: "Gorges State Park",
+    image: "my_custom_image",
+    left_accessory: my_button,
+    right_accessory: my_other_button
+}
+```
+
 You may pass whatever properties you want in the annotation hash, but `:longitude`, `:latitude`, and `:title` are required.
 
 Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
