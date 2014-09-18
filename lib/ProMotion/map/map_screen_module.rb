@@ -137,6 +137,15 @@ module ProMotion
       if annotation.annotation_params[:right_accessory]
         view.rightCalloutAccessoryView = annotation.annotation_params[:right_accessory]
       end
+
+      if annotation.annotation_params[:action]
+        annotation.annotation_params[:action_button_type] ||= UIButtonTypeDetailDisclosure
+
+        action_button = UIButton.buttonWithType(annotation.annotation_params[:action_button_type])
+        action_button.addTarget(self, action: annotation.annotation_params[:action], forControlEvents:UIControlEventTouchUpInside)
+
+        view.rightCalloutAccessoryView = action_button
+      end
       view
     end
 
