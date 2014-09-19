@@ -38,7 +38,7 @@ module ProMotion
     def center=(params={})
       PM.logger.error "Missing #:latitude property in call to #center=." unless params[:latitude]
       PM.logger.error "Missing #:longitude property in call to #center=." unless params[:longitude]
-      params[:animated] = true
+      params[:animated] ||= true
 
       # Set the new region
       self.mapview.setCenterCoordinate(
