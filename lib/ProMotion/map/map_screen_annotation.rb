@@ -57,5 +57,11 @@ module ProMotion
       end
     end
 
+    # Deprecated
+    def annotation_params
+      PM.logger.warn("annotation.annotation_params is deprecated and will be removed soon. Please use annotation.params instead.")
+      @params
+    end
+
   end
 end
