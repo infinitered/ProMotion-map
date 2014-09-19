@@ -133,6 +133,7 @@ module ProMotion
       view.animatesDrop = params[:animates_drop] if view.respond_to?("animatesDrop=")
       view.pinColor = params[:pin_color] if view.respond_to?("pinColor=")
       view.canShowCallout = params[:show_callout] if view.respond_to?("canShowCallout=")
+
       if params[:left_accessory]
         view.leftCalloutAccessoryView = params[:left_accessory]
       end
@@ -145,7 +146,7 @@ module ProMotion
 
         action_button = UIButton.buttonWithType(button_type)
         action = self.respond_to?(params[:action].to_s + ":") ? params[:action].to_s + ":" : params[:action]
-          action_button.addTarget(self, action: action, forControlEvents:UIControlEventTouchUpInside)
+        action_button.addTarget(self, action: action, forControlEvents:UIControlEventTouchUpInside)
 
         view.rightCalloutAccessoryView = action_button
       end
