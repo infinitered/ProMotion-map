@@ -213,25 +213,6 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.action_called.should == true
   end
 
-  it "should call an action with a sender" do
-    ann = default_annotation.merge({
-      action: :my_action_with_sender
-    })
-    map_screen.add_annotation ann
-    annot = map_screen.annotations.last
-    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
-    v = map_screen.annotation_view(map_screen.mapview, annot)
-
-    v.rightCalloutAccessoryView.class.should == UIButton
-    v.rightCalloutAccessoryView.buttonType.should == UIButtonTypeDetailDisclosure
-
-    map_screen.action_called.should == false
-    map_screen.action_with_sender_called.should == false
-    v.rightCalloutAccessoryView.sendActionsForControlEvents(UIControlEventTouchUpInside)
-    map_screen.action_called.should == false
-    map_screen.action_with_sender_called.should == true
-  end
-
   it "should allow a user to set an action with a custom button type" do
     ann = default_annotation.merge({
       action: :my_action_with_sender,

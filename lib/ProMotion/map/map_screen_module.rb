@@ -145,8 +145,7 @@ module ProMotion
         button_type = params[:action_button_type] || UIButtonTypeDetailDisclosure
 
         action_button = UIButton.buttonWithType(button_type)
-        action = self.respond_to?(params[:action].to_s + ":") ? params[:action].to_s + ":" : params[:action]
-        action_button.addTarget(self, action: action, forControlEvents:UIControlEventTouchUpInside)
+        action_button.addTarget(self, action: params[:action], forControlEvents:UIControlEventTouchUpInside)
 
         view.rightCalloutAccessoryView = action_button
       end
