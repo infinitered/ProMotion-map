@@ -1,9 +1,13 @@
 class TestMapScreen < PM::MapScreen
-
-  attr_accessor :infinite_loop_points, :request_complete
+  attr_accessor :infinite_loop_points, :request_complete, :action_called, :action_with_sender_called
 
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
   title "Gorges State Park, NC"
+
+  def on_load
+    @action_called = false
+    @action_with_sender_called = false
+  end
 
   def promotion_annotation_data
     @promotion_annotation_data
@@ -44,6 +48,14 @@ class TestMapScreen < PM::MapScreen
       self.request_complete = true
       self.infinite_loop_points = points
     end
+  end
+
+  def my_action
+    @action_called = true
+  end
+
+  def my_action_with_sender(sender)
+    @action_with_sender_called = true
   end
 
 end
