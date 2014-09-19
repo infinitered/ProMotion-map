@@ -21,11 +21,7 @@ Easily create a map screen, complete with annotations.
 class MyMapScreen < PM::MapScreen
   title "My Map"
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
-
-  def on_appear
-    update_annotation_data
-  end
-
+  
   def annotation_data
     [{
       longitude: -82.965972900391,
