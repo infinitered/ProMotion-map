@@ -1,5 +1,6 @@
 module ProMotion
   class MapScreenAnnotation
+    attr_reader :params
 
     # Creates the new annotation object
     def initialize(params = {})
@@ -45,11 +46,6 @@ module ProMotion
       else
         @coordinate = new_coordinate
       end
-    end
-
-    # Allows for retrieving your own custom values on the annotation
-    def annotation_params
-      @params
     end
 
     def method_missing(meth, *args)
