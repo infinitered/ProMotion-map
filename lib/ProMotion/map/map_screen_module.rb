@@ -242,6 +242,26 @@ module ProMotion
       end
     end
 
+    ########## Cocoa touch Ruby counterparts #################
+
+    def type
+      map.mapType
+    end
+
+    def type=(type)
+      map.mapType = type
+    end
+
+    %w(zoom scroll pitch rotate).each do |meth|
+      define_method("#{meth}_enabled?") do
+        map.send("is#{meth.capitalize}Enabled")
+      end
+
+      define_method("#{meth}_enabled=") do |argument|
+        map.send("#{meth}Enabled=", argument)
+      end
+    end
+
     module MapClassMethods
       def start_position(params={})
         @start_position_params = params

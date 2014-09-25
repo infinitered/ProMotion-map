@@ -218,9 +218,32 @@ end
 
 ---
 
+### CocoaTouch Property Convenience Methods
+
+`MKMapView` contains multiple property setters and getters that can be accessed in a more ruby-like syntax:
+
+```ruby
+type # Returns a MKMapType
+type = (MKMapType)new_type
+
+zoom_enabled?
+zoom_enabled = (bool)enabled
+
+scroll_enabled?
+scroll_enabled = (bool)enabled
+
+pitch_enabled?
+pitch_enabled = (bool)enabled
+
+rotate_enabled?
+rotate_enabled = (bool)enabled
+```
+
+---
+
 ### Accessors
 
-#### mapview
+#### `map` or `mapview`
 
 Reference to the created UIMapView.
 
