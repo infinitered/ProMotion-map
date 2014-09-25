@@ -38,7 +38,7 @@ module ProMotion
     def center=(params={})
       PM.logger.error "Missing #:latitude property in call to #center=." unless params[:latitude]
       PM.logger.error "Missing #:longitude property in call to #center=." unless params[:longitude]
-      params[:animated] = true
+      params[:animated] ||= true
 
       # Set the new region
       self.mapview.setCenterCoordinate(
@@ -116,26 +116,38 @@ module ProMotion
     def annotation_view(map_view, annotation)
       return if annotation.is_a? MKUserLocation
 
-      identifier = annotation.annotation_params[:identifier]
+      params = annotation.params
+
+      identifier = params[:identifier]
       if view = map_view.dequeueReusableAnnotationViewWithIdentifier(identifier)
         view.annotation = annotation
       else
         # Set the pin properties
-        if annotation.annotation_params[:image]
+        if params[:image]
           view = MKAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
         else
           view = MKPinAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
         end
       end
-      view.image = annotation.annotation_params[:image] if view.respond_to?("image=") && annotation.annotation_params[:image]
-      view.animatesDrop = annotation.annotation_params[:animates_drop] if view.respond_to?("animatesDrop=")
-      view.pinColor = annotation.annotation_params[:pin_color] if view.respond_to?("pinColor=")
-      view.canShowCallout = annotation.annotation_params[:show_callout] if view.respond_to?("canShowCallout=")
-      if annotation.annotation_params[:left_accessory]
-        view.leftCalloutAccessoryView = annotation.annotation_params[:left_accessory]
+      view.image = params[:image] if view.respond_to?("image=") && params[:image]
+      view.animatesDrop = params[:animates_drop] if view.respond_to?("animatesDrop=")
+      view.pinColor = params[:pin_color] if view.respond_to?("pinColor=")
+      view.canShowCallout = params[:show_callout] if view.respond_to?("canShowCallout=")
+
+      if params[:left_accessory]
+        view.leftCalloutAccessoryView = params[:left_accessory]
       end
-      if annotation.annotation_params[:right_accessory]
-        view.rightCalloutAccessoryView = annotation.annotation_params[:right_accessory]
+      if params[:right_accessory]
+        view.rightCalloutAccessoryView = params[:right_accessory]
+      end
+
+      if params[:action]
+        button_type = params[:action_button_type] || UIButtonTypeDetailDisclosure
+
+        action_button = UIButton.buttonWithType(button_type)
+        action_button.addTarget(self, action: params[:action], forControlEvents:UIControlEventTouchUpInside)
+
+        view.rightCalloutAccessoryView = action_button
       end
       view
     end

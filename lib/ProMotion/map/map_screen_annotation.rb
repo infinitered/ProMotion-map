@@ -1,5 +1,6 @@
 module ProMotion
   class MapScreenAnnotation
+    attr_reader :params
 
     # Creates the new annotation object
     def initialize(params = {})
@@ -47,11 +48,6 @@ module ProMotion
       end
     end
 
-    # Allows for retrieving your own custom values on the annotation
-    def annotation_params
-      @params
-    end
-
     def method_missing(meth, *args)
       if @params[meth.to_sym]
         @params[meth.to_sym]
@@ -59,6 +55,12 @@ module ProMotion
         PM.logger.warn "The annotation parameter \"#{meth}\" does not exist on this pin."
         nil
       end
+    end
+
+    # Deprecated
+    def annotation_params
+      PM.logger.warn("annotation.annotation_params is deprecated and will be removed soon. Please use annotation.params instead.")
+      @params
     end
 
   end

@@ -22,46 +22,51 @@ class MyMapScreen < PM::MapScreen
   title "My Map"
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
 
-  def on_appear
-    update_annotation_data
-  end
-
   def annotation_data
     [{
       longitude: -82.965972900391,
       latitude: 35.090648651123,
       title: "Rainbow Falls",
-      subtitle: "Nantahala National Forest"
+      subtitle: "Nantahala National Forest",
+      action: :show_forest
     },{
       longitude: -82.966093558105,
       latitude: 35.092520895652,
       title: "Turtleback Falls",
-      subtitle: "Nantahala National Forest"
+      subtitle: "Nantahala National Forest",
+      action: :show_forest
     },{
       longitude: -82.95916,
       latitude: 35.07496,
-      title: "Windy Falls"
+      title: "Windy Falls",
+      action: :show_forest
     },{
       longitude: -82.943031505056,
       latitude: 35.102516828489,
       title: "Upper Bearwallow Falls",
-      subtitle: "Gorges State Park"
+      subtitle: "Gorges State Park",
+      action: :show_forest
     },{
       longitude: -82.956244328014,
       latitude: 35.085548421623,
       title: "Stairway Falls",
       subtitle: "Gorges State Park",
-      your_param: "CustomWhatever"
+      your_param: "CustomWhatever",
+      action: :show_forest
     }, {
       longitude: -82.965972900391,
       latitude: 35.090648651123,
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
-      image: UIImage.imageNamed("custom-pin")
+      image: UIImage.imageNamed("custom-pin"),
+      action: :show_forest
     }]
   end
 
-
+  def show_forest
+    selected = selected_annotations.first
+    # Do something with the selected annotation.
+  end
 end
 ```
 
@@ -82,54 +87,19 @@ end
 
 Method that is called to get the map's annotation data and build the map. If you do not want any annotations, simply return an empty array.
 
-```ruby
-def annotation_data
-  [{
-    longitude: -82.965972900391,
-    latitude: 35.090648651123,
-    title: "Rainbow Falls",
-    subtitle: "Nantahala National Forest"
-  },{
-    longitude: -82.965972900391,
-    latitude: 35.090648651123,
-    title: "Rainbow Falls",
-    subtitle: "Nantahala National Forest",
-    image: "custom-pin" # Use your own custom image. It will be converted to a UIImage automatically.
-  },{
-    longitude: -82.966093558105,
-    latitude: 35.092520895652,
-    title: "Turtleback Falls",
-    subtitle: "Nantahala National Forest"
-  },{
-    longitude: -82.95916,
-    latitude: 35.07496,
-    title: "Windy Falls"
-  },{
-    longitude: -82.943031505056,
-    latitude: 35.102516828489,
-    title: "Upper Bearwallow Falls",
-    subtitle: "Gorges State Park"
-  },{
-    longitude: -82.956244328014,
-    latitude: 35.085548421623,
-    title: "Stairway Falls",
-    subtitle: "Gorges State Park",
-    your_param: "CustomWahtever"
-  }]
-end
-```
-
 All possible properties:
 
 ```ruby
 {
-    longitude: -82.956244328014,
-    latitude: 35.085548421623,
-    title: "Stairway Falls",
+    longitude: -82.956244328014, # REQUIRED
+    latitude: 35.085548421623, # REQUIRED
+    title: "Stairway Falls", # REQUIRED
     subtitle: "Gorges State Park",
     image: "my_custom_image",
     left_accessory: my_button,
-    right_accessory: my_other_button
+    right_accessory: my_other_button,
+    action: :my_action, # Overrides :right_accessory
+    action_button_type: UIButtonTypeContactAdd # Defaults to UIButtonTypeDetailDisclosure
 }
 ```
 
@@ -139,11 +109,17 @@ Use `:image` to specify a custom image. Pass in a string to conserve memory and 
 
 Use `:left_accessory` and `:right_accessory` to specify a custom accessory, like a button.
 
-You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.annotation_params[:your_param]`.
+You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.params[:your_param]`.
+
+The `:action` parameter specifies a method that should be run when the detail button is tapped on the annotation. It automatically adds a `UIButtonTypeDetailDisclosure` button to the `:left_accessory`. In your method you can find out which annotation's accessory was tapped by calling `selected_annotations.first`.
 
 #### update_annotation_data
 
 Forces a reload of all the annotations
+
+#### annotations
+
+Returns an array of all the annotations.
 
 #### center
 
@@ -153,9 +129,25 @@ Returns a `CLLocation2D` instance with the center coordinates of the map.
 
 Sets the center of the map. `animated` property defaults to `true`.
 
-#### annotations
+#### show_user_location
 
-Returns an array of all the annotations.
+Shows the user's location on the map.
+
+#### hide_user_location
+
+Hides the user's location on the map.
+
+#### showing_user_location?
+
+Returns a `Boolean` of whether or not the map view is currently showing the user's location.
+
+#### user_location
+
+Returns a `CLLocation2D` object of the user's location or `nil` if the user location is not being tracked
+
+#### zoom_to_user(radius = 0.05, animated=true)
+
+Zooms to the user's location. If the user's location is not currently being shown on the map, it will show it first. `radius` is a `CLLocationDegrees` of the latitude and longitude deltas. _See Apple documentation for `MKCoordinateSpan` for more information._
 
 #### select_annotation(annotation, animated=true)
 

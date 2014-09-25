@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    ProMotion-map (0.2.2)
+    ProMotion-map (0.3.0)
       ProMotion (~> 2.0)
 
 GEM

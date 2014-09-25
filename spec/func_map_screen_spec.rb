@@ -9,21 +9,26 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.navigationController
   end
 
-  def add_image_annotation
-    ann = {
+  def default_annotation
+    {
       longitude: -82.965972900392,
       latitude: 35.090648651124,
       title: "My Cool Image Pin",
-      subtitle: "Image pin subtitle",
-      image: UIImage.imageNamed("test.png")
+      subtitle: "Image pin subtitle"
     }
+  end
+
+  def add_image_annotation
+    ann = default_annotation.merge({
+      image: UIImage.imageNamed("test.png")
+    })
     map_screen.annotations.count.should == 5
     map_screen.add_annotation ann
     map_screen.set_region map_screen.region(coordinate: map_screen.annotations.last.coordinate, span: [0.05, 0.05])
   end
 
   after do
-    map_screen = nil
+    @map_screen = nil
   end
 
   it "should have a navigation bar" do
@@ -191,4 +196,34 @@ describe "ProMotion::TestMapScreen functionality" do
     v.rightCalloutAccessoryView.should == btn
   end
 
+  it "should call the correct action when set on an annotation" do
+    ann = default_annotation.merge({
+      action: :my_action
+    })
+    map_screen.add_annotation ann
+    annot = map_screen.annotations.last
+    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
+    v = map_screen.annotation_view(map_screen.mapview, annot)
+
+    v.rightCalloutAccessoryView.class.should == UIButton
+    v.rightCalloutAccessoryView.buttonType.should == UIButtonTypeDetailDisclosure
+
+    map_screen.action_called.should == false
+    v.rightCalloutAccessoryView.sendActionsForControlEvents(UIControlEventTouchUpInside)
+    map_screen.action_called.should == true
+  end
+
+  it "should allow a user to set an action with a custom button type" do
+    ann = default_annotation.merge({
+      action: :my_action_with_sender,
+      action_button_type: UIButtonTypeContactAdd
+    })
+    map_screen.add_annotation ann
+    annot = map_screen.annotations.last
+    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
+    v = map_screen.annotation_view(map_screen.mapview, annot)
+
+    v.rightCalloutAccessoryView.class.should == UIButton
+    v.rightCalloutAccessoryView.buttonType.should == UIButtonTypeContactAdd
+  end
 end
