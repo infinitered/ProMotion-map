@@ -1,12 +1,10 @@
 module ProMotion
   module MapScreenModule
-    attr_accessor :mapview
 
     def screen_setup
-      self.mapview ||= add MKMapView.new, {
-        frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height),
-        delegate: self
-      }
+      self.view = nil
+      self.view = MKMapView.alloc.initWithFrame(self.view.bounds)
+      self.view.delegate = self
 
       check_annotation_data
       @promotion_annotation_data = []
@@ -28,11 +26,11 @@ module ProMotion
     end
 
     def map
-      self.mapview
+      self.view
     end
 
     def center
-      self.mapview.centerCoordinate
+      self.view.centerCoordinate
     end
 
     def center=(params={})
@@ -41,7 +39,7 @@ module ProMotion
       params[:animated] = true
 
       # Set the new region
-      self.mapview.setCenterCoordinate(
+      self.view.setCenterCoordinate(
         CLLocationCoordinate2D.new(params[:latitude], params[:longitude]),
         animated:params[:animated]
       )
@@ -56,15 +54,15 @@ module ProMotion
     end
 
     def set_show_user_location(show)
-      self.mapview.showsUserLocation = show
+      self.view.showsUserLocation = show
     end
 
     def showing_user_location?
-      self.mapview.showsUserLocation
+      self.view.showsUserLocation
     end
 
     def user_location
-      self.mapview.userLocation.location.nil? ? nil : self.mapview.userLocation.location.coordinate
+      self.view.userLocation.location.nil? ? nil : self.view.userLocation.location.coordinate
     end
 
     def zoom_to_user(radius = 0.05, animated=true)
@@ -77,7 +75,7 @@ module ProMotion
     end
 
     def select_annotation(annotation, animated=true)
-      self.mapview.selectAnnotation(annotation, animated:animated)
+      self.view.selectAnnotation(annotation, animated:animated)
     end
 
     def select_annotation_at(annotation_index, animated=true)
@@ -85,30 +83,30 @@ module ProMotion
     end
 
     def selected_annotations
-      self.mapview.selectedAnnotations
+      self.view.selectedAnnotations
     end
 
     def deselect_annotations(animated=false)
       unless selected_annotations.nil?
         selected_annotations.each do |annotation|
-          self.mapview.deselectAnnotation(annotation, animated:animated)
+          self.view.deselectAnnotation(annotation, animated:animated)
         end
       end
     end
 
     def add_annotation(annotation)
       @promotion_annotation_data << MapScreenAnnotation.new(annotation)
-      self.mapview.addAnnotation @promotion_annotation_data.last
+      self.view.addAnnotation @promotion_annotation_data.last
     end
 
     def add_annotations(annotations)
       @promotion_annotation_data = Array(annotations).map{|a| MapScreenAnnotation.new(a)}
-      self.mapview.addAnnotations @promotion_annotation_data
+      self.view.addAnnotations @promotion_annotation_data
     end
 
     def clear_annotations
       @promotion_annotation_data.each do |a|
-        self.mapview.removeAnnotation(a)
+        self.view.removeAnnotation(a)
       end
       @promotion_annotation_data = []
     end
@@ -188,13 +186,13 @@ module ProMotion
       )
 
       region = MKCoordinateRegionMake(coord, span)
-      fits = self.mapview.regionThatFits(region);
+      fits = self.view.regionThatFits(region);
 
       set_region(fits, animated:animated)
     end
 
     def set_region(region, animated=true)
-      self.mapview.setRegion(region, animated:animated)
+      self.view.setRegion(region, animated:animated)
     end
 
     def region(params)

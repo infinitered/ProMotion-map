@@ -171,7 +171,7 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.add_annotation ann
     annot = map_screen.annotations.last
     annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
-    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v = map_screen.annotation_view(map_screen.view, annot)
     v.leftCalloutAccessoryView.should == btn
   end
 
@@ -187,7 +187,7 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.add_annotation ann
     annot = map_screen.annotations.last
     annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
-    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v = map_screen.annotation_view(map_screen.view, annot)
     v.rightCalloutAccessoryView.should == btn
   end
 
