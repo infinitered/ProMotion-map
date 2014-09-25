@@ -28,6 +28,7 @@ module ProMotion
     def map
       self.view
     end
+    alias_method :mapview, :map
 
     def center
       self.view.centerCoordinate

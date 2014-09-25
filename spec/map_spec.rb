@@ -65,4 +65,9 @@ describe "map properties" do
     @map.user_location.should == nil
   end
 
+  it "should allow access to teh map via convenience methods" do
+    @map.view.should == @map.mapview
+    @map.mapview.should == @map.map
+  end
+
 end
