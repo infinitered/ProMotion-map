@@ -1,21 +1,21 @@
 GIT
   remote: https://github.com/clearsightstudio/ProMotion.git
-  revision: eaa02d023389454e54e40c3113e1febd50240bd3
+  revision: ae80748f9bde5e388b8f6c52c9cf3cf50eeb26e7
   branch: master
   specs:
-    ProMotion (2.0.0)
-      methadone (~> 1.4)
+    ProMotion (2.0.1)
+      methadone (~> 1.7)
 
 PATH
   remote: .
   specs:
-    ProMotion-map (0.3.0)
+    ProMotion-map (0.4.0)
       ProMotion (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    methadone (1.5.1)
+    methadone (1.7.0)
       bundler
     motion-redgreen (0.1.0)
     motion-stump (0.3.2)
