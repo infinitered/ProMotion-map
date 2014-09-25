@@ -191,4 +191,18 @@ describe "ProMotion::TestMapScreen functionality" do
     v.rightCalloutAccessoryView.should == btn
   end
 
+  it 'should allow you to set different properties of MKMapView' do
+    map_screen.map.mapType.should == MKMapTypeStandard
+    map_screen.map.mapType = MKMapTypeHybrid
+    map_screen.map.mapType.should == MKMapTypeHybrid
+
+    map_screen.map.isZoomEnabled.should == true
+    map_screen.map.zoomEnabled = false
+    map_screen.map.isZoomEnabled.should == false
+
+    map_screen.map.isRotateEnabled.should == true
+    map_screen.map.rotateEnabled = false
+    map_screen.map.isRotateEnabled.should == false
+  end
+
 end
