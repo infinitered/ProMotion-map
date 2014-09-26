@@ -68,6 +68,7 @@ describe "map properties" do
   it "should allow access to teh map via convenience methods" do
     @map.view.should == @map.mapview
     @map.mapview.should == @map.map
+  end
 
   it "should allow ruby counterparts to MKMapView to be used" do
     @map.type.should == MKMapTypeStandard
