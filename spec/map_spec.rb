@@ -68,6 +68,27 @@ describe "map properties" do
   it "should allow access to teh map via convenience methods" do
     @map.view.should == @map.mapview
     @map.mapview.should == @map.map
+
+  it "should allow ruby counterparts to MKMapView to be used" do
+    @map.type.should == MKMapTypeStandard
+    @map.type = MKMapTypeHybrid
+    @map.type.should == MKMapTypeHybrid
+
+    @map.zoom_enabled?.should == true
+    @map.zoom_enabled = false
+    @map.zoom_enabled?.should == false
+
+    @map.scroll_enabled?.should == true
+    @map.scroll_enabled = false
+    @map.scroll_enabled?.should == false
+
+    @map.pitch_enabled?.should == true
+    @map.pitch_enabled = false
+    @map.pitch_enabled?.should == false
+
+    @map.rotate_enabled?.should == true
+    @map.rotate_enabled = false
+    @map.rotate_enabled?.should == false
   end
 
 end
