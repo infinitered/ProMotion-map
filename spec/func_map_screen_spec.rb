@@ -28,7 +28,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   after do
-    @map_screen = nil
+    map_screen = nil
   end
 
   it "should have a navigation bar" do
