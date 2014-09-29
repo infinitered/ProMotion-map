@@ -28,7 +28,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   after do
-    @map_screen = nil
+    map_screen = nil
   end
 
   it "should have a navigation bar" do
@@ -176,7 +176,7 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.add_annotation ann
     annot = map_screen.annotations.last
     annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
-    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v = map_screen.annotation_view(map_screen.view, annot)
     v.leftCalloutAccessoryView.should == btn
   end
 
@@ -192,7 +192,7 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.add_annotation ann
     annot = map_screen.annotations.last
     annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
-    v = map_screen.annotation_view(map_screen.mapview, annot)
+    v = map_screen.annotation_view(map_screen.view, annot)
     v.rightCalloutAccessoryView.should == btn
   end
 
@@ -226,4 +226,19 @@ describe "ProMotion::TestMapScreen functionality" do
     v.rightCalloutAccessoryView.class.should == UIButton
     v.rightCalloutAccessoryView.buttonType.should == UIButtonTypeContactAdd
   end
+
+  it 'should allow you to set different properties of MKMapView' do
+    map_screen.map.mapType.should == MKMapTypeStandard
+    map_screen.map.mapType = MKMapTypeHybrid
+    map_screen.map.mapType.should == MKMapTypeHybrid
+
+    map_screen.map.isZoomEnabled.should == true
+    map_screen.map.zoomEnabled = false
+    map_screen.map.isZoomEnabled.should == false
+
+    map_screen.map.isRotateEnabled.should == true
+    map_screen.map.rotateEnabled = false
+    map_screen.map.isRotateEnabled.should == false
+  end
+
 end
