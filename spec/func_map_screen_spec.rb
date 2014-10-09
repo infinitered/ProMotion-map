@@ -46,8 +46,8 @@ describe "ProMotion::TestMapScreen functionality" do
 
     wait 0.75 do
       center_coordinate = map_screen.center
-      center_coordinate.latitude.should.be.close 35.07496, 0.001
-      center_coordinate.longitude.should.be.close -82.95916, 0.001
+      center_coordinate.latitude.should.be.close 35.07496, 0.02
+      center_coordinate.longitude.should.be.close -82.95916, 0.02
     end
   end
 
