@@ -47,7 +47,7 @@ module ProMotion
     end
 
     def show_user_location
-      if location_manager.respondsToSelector('requestAlwaysAuthorization')
+      if location_manager.respondsToSelector('requestWhenInUseAuthorization')
         location_manager.requestWhenInUseAuthorization
       end
 
