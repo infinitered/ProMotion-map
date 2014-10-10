@@ -47,6 +47,10 @@ module ProMotion
     end
 
     def show_user_location
+      if location_manager.respondsToSelector('requestWhenInUseAuthorization')
+        location_manager.requestWhenInUseAuthorization
+      end
+
       set_show_user_location true
     end
 
@@ -278,6 +282,15 @@ module ProMotion
     def self.included(base)
       base.extend(MapClassMethods)
     end
+
+    private
+
+    def location_manager
+      @location_manager ||= CLLocationManager.alloc.init
+      @location_manager.delegate ||= self
+      @location_manager
+    end
+
 
   end
 end
