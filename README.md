@@ -177,9 +177,9 @@ Adds more than one annotation at a time to the map.
 
 Removes all annotations from the `MapScreen`.
 
-#### zoom_to_fit_annotations(animated=true)
+#### zoom_to_fit_annotations(animated=true, include_user=false)
 
-Changes the zoom and center point of the `MapScreen` to fit all the annotations.
+Changes the zoom and center point of the `MapScreen` to fit all the annotations. Passing `include_user` as true will cause the zoom to not only include the annotations from `annotation_data` but also the user pin in the zoom region calculation.
 
 #### set_region(region, animated=true)
 
