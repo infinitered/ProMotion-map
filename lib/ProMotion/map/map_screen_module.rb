@@ -67,7 +67,11 @@ module ProMotion
     end
 
     def user_location
-      self.view.userLocation.location.nil? ? nil : self.view.userLocation.location.coordinate
+      user_annotation.nil? ? nil : user_annotation.coordinate
+    end
+
+    def user_annotation
+      self.view.userLocation.location.nil? ? nil : self.view.userLocation.location
     end
 
     def zoom_to_user(radius = 0.05, animated=true)
@@ -174,16 +178,22 @@ module ProMotion
     end
 
     # TODO: Why is this so complex?
-    def zoom_to_fit_annotations(animated=true)
+    def zoom_to_fit_annotations(args={})
+      # Preserve backwards compatibility
+      args = {animated: args} if args == true || args == false
+      args = {animated: true, include_user: false}.merge(args)
+
+      ann = args[:include_user] ? (annotations + [user_annotation]).compact : annotations
+
       #Don't attempt the rezoom of there are no pins
-      return if annotations.count == 0
+      return if ann.count == 0
 
       #Set some crazy boundaries
       topLeft = CLLocationCoordinate2D.new(-90, 180)
       bottomRight = CLLocationCoordinate2D.new(90, -180)
 
       #Find the bounds of the pins
-      annotations.each do |a|
+      ann.each do |a|
         topLeft.longitude = [topLeft.longitude, a.coordinate.longitude].min
         topLeft.latitude = [topLeft.latitude, a.coordinate.latitude].max
         bottomRight.longitude = [bottomRight.longitude, a.coordinate.longitude].max
@@ -203,9 +213,9 @@ module ProMotion
       )
 
       region = MKCoordinateRegionMake(coord, span)
-      fits = self.view.regionThatFits(region);
+      fits = self.view.regionThatFits(region)
 
-      set_region(fits, animated:animated)
+      set_region(fits, animated: args[:animated])
     end
 
     def set_region(region, animated=true)
