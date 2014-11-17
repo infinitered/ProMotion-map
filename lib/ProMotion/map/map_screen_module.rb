@@ -178,8 +178,12 @@ module ProMotion
     end
 
     # TODO: Why is this so complex?
-    def zoom_to_fit_annotations(animated=true, include_user = false)
-      ann = include_user ? (annotations + [user_annotation]).compact : annotations
+    def zoom_to_fit_annotations(args={})
+      # Preserve backwards compatibility
+      args = {animated: args} if args == true || args == false
+      args = {animated: true, include_user: false}.merge(args)
+
+      ann = args[:include_user] ? (annotations + [user_annotation]).compact : annotations
 
       #Don't attempt the rezoom of there are no pins
       return if ann.count == 0
@@ -211,7 +215,7 @@ module ProMotion
       region = MKCoordinateRegionMake(coord, span)
       fits = self.view.regionThatFits(region)
 
-      set_region(fits, animated:animated)
+      set_region(fits, animated: args[:animated])
     end
 
     def set_region(region, animated=true)
