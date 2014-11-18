@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |spec|
   spec.name          = "ProMotion-map"
-  spec.version       = "0.4.2"
+  spec.version       = "0.5.0"
   spec.authors       = ["Mark Rickert", "Jamon Holmgren"]
   spec.email         = ["mark@mohawkapps.com", "jamon@clearsightstudio.com"]
   spec.description   = %q{Adds PM::MapScreen support to ProMotion.}
