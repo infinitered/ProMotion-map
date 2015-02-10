@@ -243,8 +243,13 @@ module ProMotion
     end
 
     def look_up_location(location, &callback)
-      geocoder = CLGeocoder.new
-      geocoder.reverseGeocodeLocation(location, completionHandler: callback)
+      if location.kind_of?(CLLocation)
+        geocoder = CLGeocoder.new
+        geocoder.reverseGeocodeLocation(location, completionHandler: callback)
+      else
+        PM.logger.info("You're trying to reverse geocode something that isn't a CLLocation")
+        callback.call nil, nil
+      end
     end
 
     ########## Cocoa touch methods #################
