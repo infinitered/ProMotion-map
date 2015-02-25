@@ -131,7 +131,7 @@ Sets the center of the map. `animated` property defaults to `true`.
 
 #### show_user_location
 
-Shows the user's location on the map.
+Shows the user's location on the map. Must be called in the view initialization sequence on `will_appear` or _after_.
 
 ##### iOS 8 Location Requirements
 
