@@ -30,6 +30,15 @@ describe "map properties" do
     @map.annotations.count.should == 6
   end
 
+  it "should add an annotation with a coordinate" do
+    ann = {
+      coordinate: CLLocationCoordinate2DMake(35.092520895652, -82.966093558105),
+      title: "A Coordinate"
+    }
+    @map.add_annotation(ann)
+    @map.annotations.count.should == 6
+  end
+
   it "should return custom annotation parameters" do
     ann = {
       longitude: -82.966093558105,
@@ -73,7 +82,7 @@ describe "map properties" do
   it "should allow ruby counterparts to MKMapView to be used" do
     @map.type.should == MKMapTypeStandard
     @map.type = MKMapTypeHybrid
-    @map.type.should == MKMapTypeHybrid
+    @map.map.mapType.should == MKMapTypeHybrid
 
     @map.zoom_enabled?.should == true
     @map.zoom_enabled = false

@@ -54,8 +54,7 @@ class MyMapScreen < PM::MapScreen
       your_param: "CustomWhatever",
       action: :show_forest
     }, {
-      longitude: -82.965972900391,
-      latitude: 35.090648651123,
+      coordinate: CLLocationCoordinate2DMake(35.090648651123, -82.965972900391)
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
       image: UIImage.imageNamed("custom-pin"),
@@ -91,8 +90,13 @@ All possible properties:
 
 ```ruby
 {
-    longitude: -82.956244328014, # REQUIRED
-    latitude: 35.085548421623, # REQUIRED
+    # REQUIRED -or- use :coordinate
+    longitude: -82.956244328014,
+    latitude: 35.085548421623,
+
+    # REQUIRED -or- use :longitude & :latitude
+    coordinate: CLLocationCoordinate2DMake(35.085548421623, -82.956244328014)
+
     title: "Stairway Falls", # REQUIRED
     subtitle: "Gorges State Park",
     image: "my_custom_image",
@@ -103,7 +107,7 @@ All possible properties:
 }
 ```
 
-You may pass whatever properties you want in the annotation hash, but `:longitude`, `:latitude`, and `:title` are required.
+You may pass whatever properties you want in the annotation hash, but (`:longitude` && `:latitude` || `:coordinate`), and `:title` are required.
 
 Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
 

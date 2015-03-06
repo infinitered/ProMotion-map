@@ -20,8 +20,8 @@ class TestMapScreen < PM::MapScreen
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
     },{
-      longitude: -82.966093558105,
-      latitude: 35.092520895652,
+      # Example of using :coordinate instead of :latitude & :longitude
+      coordinate: CLLocationCoordinate2DMake(35.092520895652, -82.966093558105),
       title: "Turtleback Falls",
       subtitle: "Nantahala National Forest",
     },{

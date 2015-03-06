@@ -7,11 +7,16 @@ module ProMotion
       @params = params
       set_defaults
 
-      unless @params[:latitude] && @params[:longitude]
-        PM.logger.error("You are required to specify :latitude and :longitude for annotations.")
-        return nil
+      if @params[:coordinate]
+        @params[:latitude] = @params[:coordinate].latitude
+        @params[:longitude] = @params[:coordinate].longitude
+        @coordinate = @params[:coordinate]
+      elsif @params[:latitude] && @params[:longitude]
+        @coordinate = CLLocationCoordinate2D.new(@params[:latitude], @params[:longitude])
+      else
+        PM.logger.error("You are required to specify :latitude and :longitude or :coordinate for annotations.")
+        nil
       end
-      @coordinate = CLLocationCoordinate2D.new(@params[:latitude], @params[:longitude])
     end
 
     def set_defaults
