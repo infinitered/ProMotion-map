@@ -3,6 +3,7 @@ class TestMapScreen < PM::MapScreen
 
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
   title "Gorges State Park, NC"
+  tap_to_add length: 1.5, annotation: {animates_drop: false, title: "A new park?"}
 
   def on_load
     @action_called = false
