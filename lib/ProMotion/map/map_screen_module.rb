@@ -184,13 +184,13 @@ module ProMotion
       params = {
         length: 2.0,
         target: self,
-        action: "gesture_drop_pin:"
+        action: "gesture_drop_pin:",
+        annotation: {
+          title: "Dropped Pin",
+          animates_drop: true
+        }
       }.merge(params)
-
-      @tap_to_add_annotation_params = {
-        title: "Dropped Pin",
-        animates_drop: true
-      }.merge(params[:annotation] || {})
+      @tap_to_add_annotation_params = params[:annotation]
 
       lpgr = UILongPressGestureRecognizer.alloc.initWithTarget(params[:target], action:params[:action])
       lpgr.minimumPressDuration = params[:length]
