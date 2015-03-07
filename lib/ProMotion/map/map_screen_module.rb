@@ -162,8 +162,8 @@ module ProMotion
 
     def set_start_position(params={})
       params = {
-        latitude: 37.331789
-        longitude: -122.029620
+        latitude: 37.331789,
+        longitude: -122.029620,
         radius: 10
       }.merge(params)
 
