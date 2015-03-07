@@ -161,9 +161,11 @@ module ProMotion
     end
 
     def set_start_position(params={})
-      params[:latitude] ||= 37.331789
-      params[:longitude] ||= -122.029620
-      params[:radius] ||= 10
+      params = {
+        latitude: 37.331789
+        longitude: -122.029620
+        radius: 10
+      }.merge(params)
 
       meters_per_mile = 1609.344
 
@@ -354,7 +356,6 @@ module ProMotion
       @location_manager.delegate ||= self
       @location_manager
     end
-
 
   end
 end
