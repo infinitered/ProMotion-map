@@ -35,7 +35,7 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.navigationController.should.be.kind_of(UINavigationController)
   end
 
-  it "should have the map properly centered" do
+  it "should start the map in the correct location" do
     center_coordinate = map_screen.center
     center_coordinate.latitude.should.be.close 35.090648651123, 0.02
     center_coordinate.longitude.should.be.close -82.965972900391, 0.02
