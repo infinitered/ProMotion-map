@@ -242,6 +242,16 @@ module ProMotion
       return geocoder.geocodeAddressString(args[:address].to_s, inRegion:args[:region].to_s, completionHandler: callback) if args[:region]
     end
 
+    def look_up_location(location, &callback)
+      if location.kind_of?(CLLocation)
+        geocoder = CLGeocoder.new
+        geocoder.reverseGeocodeLocation(location, completionHandler: callback)
+      else
+        PM.logger.info("You're trying to reverse geocode something that isn't a CLLocation")
+        callback.call nil, nil
+      end
+    end
+
     ########## Cocoa touch methods #################
     def mapView(map_view, viewForAnnotation:annotation)
       annotation_view(map_view, annotation)
