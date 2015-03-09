@@ -138,6 +138,10 @@ Sets the center of the map. `animated` property defaults to `true`.
 
 Shows the user's location on the map. Must be called in the view initialization sequence on `will_appear` or _after_.
 
+#### look_up_location(CLLocation) { |placemark, error| }
+
+This method takes a CLLocation object and will return one to many CLPlacemark to represent nearby data.
+
 ##### iOS 8 Location Requirements
 
 iOS 8 introduced stricter location services requirements. You are now required to add a few key/value pairs to the `Info.plist`. Add these two lines to your `Rakefile` (with your descriptions, obviously):

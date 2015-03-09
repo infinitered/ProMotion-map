@@ -241,4 +241,20 @@ describe "ProMotion::TestMapScreen functionality" do
     map_screen.map.isRotateEnabled.should == false
   end
 
+  it "can lookup a location" do
+    location = CLLocation.alloc.initWithLatitude(-34.226082, longitude: 150.668374)
+
+    map_screen.look_up_location(location) do |placemarks, fetch_error|
+      @error = fetch_error
+      @placemark = placemarks.first
+      resume
+    end
+
+    wait do
+      @error.should == nil
+      @placemark.should.be.kind_of?(CLPlacemark)
+      @error = nil
+      @placemark = nil
+    end
+  end
 end
