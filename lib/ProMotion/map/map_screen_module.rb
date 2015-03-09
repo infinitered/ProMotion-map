@@ -9,6 +9,7 @@ module ProMotion
       check_annotation_data
       @promotion_annotation_data = []
       set_up_start_position
+      set_up_tap_to_add
     end
 
     def view_will_appear(animated)
@@ -160,9 +161,11 @@ module ProMotion
     end
 
     def set_start_position(params={})
-      params[:latitude] ||= 37.331789
-      params[:longitude] ||= -122.029620
-      params[:radius] ||= 10
+      params = {
+        latitude: 37.331789,
+        longitude: -122.029620,
+        radius: 10
+      }.merge(params)
 
       meters_per_mile = 1609.344
 
@@ -174,6 +177,42 @@ module ProMotion
     def set_up_start_position
       if self.class.respond_to?(:get_start_position) && self.class.get_start_position
         self.set_start_position self.class.get_start_position_params
+      end
+    end
+
+    def set_tap_to_add(params={})
+      params = {
+        length: 2.0,
+        target: self,
+        action: "gesture_drop_pin:",
+        annotation: {
+          title: "Dropped Pin",
+          animates_drop: true
+        }
+      }.merge(params)
+      @tap_to_add_annotation_params = params[:annotation]
+
+      lpgr = UILongPressGestureRecognizer.alloc.initWithTarget(params[:target], action:params[:action])
+      lpgr.minimumPressDuration = params[:length]
+      self.view.addGestureRecognizer(lpgr)
+    end
+
+    def gesture_drop_pin(gesture_recognizer)
+      if gesture_recognizer.state == UIGestureRecognizerStateBegan
+        NSNotificationCenter.defaultCenter.postNotificationName("ProMotionMapWillAddPin", object:nil)
+        touch_point = gesture_recognizer.locationInView(self.view)
+        touch_map_coordinate = self.view.convertPoint(touch_point, toCoordinateFromView:self.view)
+
+        add_annotation({
+          coordinate: touch_map_coordinate
+        }.merge(@tap_to_add_annotation_params))
+        NSNotificationCenter.defaultCenter.postNotificationName("ProMotionMapAddedPin", object:@promotion_annotation_data.last)
+      end
+    end
+
+    def set_up_tap_to_add
+      if self.class.respond_to?(:get_tap_to_add) && self.class.get_tap_to_add
+        self.set_tap_to_add self.class.get_tap_to_add_params
       end
     end
 
@@ -288,6 +327,7 @@ module ProMotion
     end
 
     module MapClassMethods
+      # Start Position
       def start_position(params={})
         @start_position_params = params
         @start_position = true
@@ -300,6 +340,22 @@ module ProMotion
       def get_start_position
         @start_position ||= false
       end
+
+      # Tap to drop pin
+      def tap_to_add(params={})
+        @tap_to_add_params = params
+        @tap_to_add = true
+      end
+
+      def get_tap_to_add_params
+        @tap_to_add_params ||= nil
+      end
+
+      def get_tap_to_add
+        @tap_to_add ||= false
+      end
+
+
     end
     def self.included(base)
       base.extend(MapClassMethods)
@@ -312,7 +368,6 @@ module ProMotion
       @location_manager.delegate ||= self
       @location_manager
     end
-
 
   end
 end

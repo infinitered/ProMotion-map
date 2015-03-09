@@ -21,6 +21,7 @@ Easily create a map screen, complete with annotations.
 class MyMapScreen < PM::MapScreen
   title "My Map"
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
+  tap_to_add
 
   def annotation_data
     [{
@@ -234,6 +235,75 @@ end
 ```
 
 `radius` is the zoom level of the map in miles (default: 10).
+
+#### tap_to_add(length: Float, target: Object, action: Selector, annotation: Hash)
+
+Lets a user long press the map to drop an annotation where they pressed.
+
+##### Default values:
+
+You can override any of these values. The `annotation` parameter can take any options specified in the annotation documentation above except `:latitude`, `:longitude`, and `:coordinate`.
+
+```ruby
+length: 2.0,
+target: self,
+action: "gesture_drop_pin:",
+annotation: {
+  title: "Dropped Pin",
+  animates_drop: true
+}
+```
+
+##### Notifications
+
+This feature posts two different `NSNotificationCenter` notifications:
+
+**ProMotionMapWillAddPin:** Fired the moment the long press gesture is recognized, before the pin is added.
+
+**ProMotionMapAddedPin:** Fired after the pin has been added to the map.
+
+##### Example:
+
+```ruby
+# Simple Example
+class MyMapScreen < PM::MapScreen
+  title "My Map Screen"
+  tap_to_add length: 1.5
+  def annotations
+    []
+  end
+end
+```
+
+```ruby
+# A More Complex Example
+class MyMapScreen < PM::MapScreen
+  title "My Map Screen"
+  tap_to_add length: 1.5, annotation: {animates_drop: true, title: "A Cool New Pin"}
+  def annotations
+    []
+  end
+
+  def will_appear
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_adding:") , name:"ProMotionMapWillAddPin", object:nil)
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_added:") , name:"ProMotionMapAddedPin", object:nil)
+  end
+
+  def will_disappear
+    NSNotificationCenter.defaultCenter.removeObserver(self)
+  end
+
+  def pin_adding(notification)
+    # We only want one pin on the map at a time
+    clear_annotations
+  end
+
+  def pin_added(notification)
+    # Once the pin is dropped we want to select it
+    select_annotation_at(0)
+  end
+end
+```
 
 ---
 
