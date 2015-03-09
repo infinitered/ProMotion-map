@@ -282,6 +282,8 @@ module ProMotion
     end
 
     def look_up_location(location, &callback)
+      location = CLLocation.alloc.initWithLatitude(location.latitude, longitude:location.longitude) if location.is_a?(CLLocationCoordinate2D)
+
       if location.kind_of?(CLLocation)
         geocoder = CLGeocoder.new
         geocoder.reverseGeocodeLocation(location, completionHandler: callback)
