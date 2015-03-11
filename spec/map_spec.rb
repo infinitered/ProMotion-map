@@ -20,6 +20,13 @@ describe "map properties" do
     end
   end
 
+  it "should have a default red colored pin" do
+    @map.annotations.each do |annotation|
+      annotation_view = @map.annotation_view(@map.mapview, annotation)
+      annotation_view.pinColor.should == MKPinAnnotationColorRed
+    end
+  end
+
   it "should add an annotation" do
     ann = {
       longitude: -82.966093558105,
@@ -28,6 +35,28 @@ describe "map properties" do
     }
     @map.add_annotation(ann)
     @map.annotations.count.should == 6
+  end
+
+  it "should add an annotation with a different pin color symbol" do
+    ann = ProMotion::MapScreenAnnotation.new({
+      longitude: -82.966993558105,
+      latitude: 35.092520495652,
+      title: "Green Pin",
+      pin_color: :green
+    })
+    annotation_view = @map.annotation_view(@map.mapview, ann)
+    annotation_view.pinColor.should == MKPinAnnotationColorGreen
+  end
+
+  it "should add an annotation with a different pin color constant" do
+    ann = ProMotion::MapScreenAnnotation.new({
+      longitude: -82.966993558105,
+      latitude: 35.092520495652,
+      title: "Purple Pin",
+      pin_color: MKPinAnnotationColorPurple
+    })
+    annotation_view = @map.annotation_view(@map.mapview, ann)
+    annotation_view.pinColor.should == MKPinAnnotationColorPurple
   end
 
   it "should add an annotation with a coordinate" do
