@@ -1,6 +1,12 @@
 module ProMotion
   module MapScreenModule
 
+    PIN_COLORS = {
+      red: MKPinAnnotationColorRed,
+      green: MKPinAnnotationColorGreen,
+      purple: MKPinAnnotationColorPurple
+    }
+
     def screen_setup
       self.view = nil
       self.view = MKMapView.alloc.initWithFrame(self.view.bounds)
@@ -139,7 +145,7 @@ module ProMotion
       end
       view.image = params[:image] if view.respond_to?("image=") && params[:image]
       view.animatesDrop = params[:animates_drop] if view.respond_to?("animatesDrop=")
-      view.pinColor = params[:pin_color] if view.respond_to?("pinColor=")
+      view.pinColor = (PIN_COLORS[params[:pin_color]] || params[:pin_color]) if view.respond_to?("pinColor=")
       view.canShowCallout = params[:show_callout] if view.respond_to?("canShowCallout=")
 
       if params[:left_accessory]

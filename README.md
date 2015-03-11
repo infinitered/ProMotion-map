@@ -29,13 +29,15 @@ class MyMapScreen < PM::MapScreen
       latitude: 35.090648651123,
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
-      action: :show_forest
+      action: :show_forest,
+      pin_color: :green
     },{
       longitude: -82.966093558105,
       latitude: 35.092520895652,
       title: "Turtleback Falls",
       subtitle: "Nantahala National Forest",
-      action: :show_forest
+      action: :show_forest,
+      pin_color: MKPinAnnotationColorPurple
     },{
       longitude: -82.95916,
       latitude: 35.07496,
@@ -101,6 +103,7 @@ All possible properties:
     title: "Stairway Falls", # REQUIRED
     subtitle: "Gorges State Park",
     image: "my_custom_image",
+    pin_color: :red, # Defaults to :red. Other options are :green or :purple or any MKPinAnnotationColor
     left_accessory: my_button,
     right_accessory: my_other_button,
     action: :my_action, # Overrides :right_accessory

@@ -22,7 +22,7 @@ module ProMotion
     def set_defaults
       @params = {
         title: "Title",
-        pin_color: MKPinAnnotationColorRed,
+        pin_color: :red,
         identifier: "Annotation-#{@params[:pin_color]}-#{@params[:image]}",
         show_callout: true,
         animates_drop: false
