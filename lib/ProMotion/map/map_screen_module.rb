@@ -312,6 +312,22 @@ module ProMotion
       end
     end
 
+    def mapView(map_view, regionWillChangeAnimated:animated)
+      if self.respond_to?("region_will_change:")
+        region_will_change(animated)
+      elsif self.respond_to?(:region_will_change)
+        region_will_change
+      end
+    end
+
+    def mapView(map_view, regionDidChangeAnimated:animated)
+      if self.respond_to?("region_did_change:")
+        region_did_change(animated)
+      elsif self.respond_to?(:region_did_change)
+        region_did_change
+      end
+    end
+
     ########## Cocoa touch Ruby counterparts #################
 
     def type

@@ -310,6 +310,22 @@ end
 
 ---
 
+### Delegate callbacks
+
+These methods (if implemented in your `MapScreen`) will be called when the corresponding `MKMapViewDelegate` method is invoked:
+
+```ruby
+def region_will_change(animated)
+  # Do something when the region will change
+end
+
+def region_did_change(animated)
+  # Do something when the region changed
+end
+```
+
+---
+
 ### CocoaTouch Property Convenience Methods
 
 `MKMapView` contains multiple property setters and getters that can be accessed in a more ruby-like syntax:

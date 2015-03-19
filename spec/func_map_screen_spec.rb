@@ -274,4 +274,18 @@ describe "ProMotion::TestMapScreen functionality" do
       @placemark = nil
     end
   end
+
+  it "should call region_will_change" do
+    map_screen.on_load
+    map_screen.got_region_will_change.should == false
+    map_screen.mapView(map_screen.map, regionWillChangeAnimated: true)
+    map_screen.got_region_will_change.should == true
+  end
+
+  it "should call region_did_change" do
+    map_screen.on_load
+    map_screen.got_region_did_change.should == false
+    map_screen.mapView(map_screen.map, regionDidChangeAnimated: true)
+    map_screen.got_region_did_change.should == true
+  end
 end

@@ -1,5 +1,6 @@
 class TestMapScreen < PM::MapScreen
   attr_accessor :infinite_loop_points, :request_complete, :action_called
+  attr_accessor :got_region_will_change, :got_region_did_change
 
   start_position latitude: 35.090648651123, longitude: -82.965972900391, radius: 4
   title "Gorges State Park, NC"
@@ -7,6 +8,8 @@ class TestMapScreen < PM::MapScreen
 
   def on_load
     @action_called = false
+    @got_region_did_change = false
+    @got_region_will_change = false
   end
 
   def promotion_annotation_data
@@ -52,6 +55,14 @@ class TestMapScreen < PM::MapScreen
 
   def my_action
     @action_called = true
+  end
+
+  def region_will_change
+    @got_region_will_change = true
+  end
+
+  def region_did_change
+    @got_region_did_change = true
   end
 
 end
