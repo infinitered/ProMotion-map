@@ -313,18 +313,18 @@ module ProMotion
     end
 
     def mapView(map_view, regionWillChangeAnimated:animated)
-      if self.respond_to?("region_will_change:")
-        region_will_change(animated)
-      elsif self.respond_to?(:region_will_change)
-        region_will_change
+      if self.respond_to?("will_change_region:")
+        will_change_region(animated)
+      elsif self.respond_to?(:will_change_region)
+        will_change_region
       end
     end
 
     def mapView(map_view, regionDidChangeAnimated:animated)
-      if self.respond_to?("region_did_change:")
-        region_did_change(animated)
-      elsif self.respond_to?(:region_did_change)
-        region_did_change
+      if self.respond_to?("on_change_region:")
+        on_change_region(animated)
+      elsif self.respond_to?(:on_change_region)
+        on_change_region
       end
     end
 

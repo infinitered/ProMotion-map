@@ -315,12 +315,18 @@ end
 These methods (if implemented in your `MapScreen`) will be called when the corresponding `MKMapViewDelegate` method is invoked:
 
 ```ruby
-def region_will_change(animated)
+def will_change_region(animated)
   # Do something when the region will change
+  # The animated parameter is optional so you can also define it is simply:
+  # def will_change_region
+  # end
 end
 
-def region_did_change(animated)
+def on_change_region(animated)
   # Do something when the region changed
+  # The animated parameter is optional so you can also define it is simply:
+  # def on_change_region
+  # end
 end
 ```
 
