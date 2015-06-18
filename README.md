@@ -56,8 +56,8 @@ class MyMapScreen < PM::MapScreen
       subtitle: "Gorges State Park",
       your_param: "CustomWhatever",
       action: :show_forest
-    }, {
-      coordinate: CLLocationCoordinate2DMake(35.090648651123, -82.965972900391)
+    },{
+      coordinate: CLLocationCoordinate2DMake(35.090648651123, -82.965972900391),
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
       image: UIImage.imageNamed("custom-pin"),
@@ -288,8 +288,8 @@ class MyMapScreen < PM::MapScreen
   end
 
   def will_appear
-    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_adding:") , name:"ProMotionMapWillAddPin", object:nil)
-    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_added:") , name:"ProMotionMapAddedPin", object:nil)
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_adding:", name:"ProMotionMapWillAddPin", object:nil)
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"pin_added:", name:"ProMotionMapAddedPin", object:nil)
   end
 
   def will_disappear
