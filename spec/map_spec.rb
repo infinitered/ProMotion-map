@@ -3,11 +3,11 @@ describe "map properties" do
   before do
     # Simulate AppDelegate setup of map screen
     @map = TestMapScreen.new modal: true, nav_bar: true
-    @map.view_will_appear(false)
+    @map.on_appear
   end
 
   it "should store title" do
-    @map.title.should == "Gorges State Park, NC"
+    @map.title.should == "Rio de Janeiro, Brasil"
   end
 
   it "should have 5 annotations" do

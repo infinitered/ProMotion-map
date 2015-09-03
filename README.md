@@ -1,15 +1,19 @@
-# ProMotion-map
+# ProMotion-mapbox
 
-[![Gem Version](https://badge.fury.io/rb/ProMotion-map.svg)](http://badge.fury.io/rb/ProMotion-map) [![Build Status](https://travis-ci.org/clearsightstudio/ProMotion-map.svg)](https://travis-ci.org/clearsightstudio/ProMotion-map) [![Code Climate](https://codeclimate.com/github/clearsightstudio/ProMotion-map.png)](https://codeclimate.com/github/clearsightstudio/ProMotion-map)
+[![Gem Version](https://badge.fury.io/rb/ProMotion-mapbox.svg)](http://badge.fury.io/rb/ProMotion-mapbox)
 
-ProMotion-map provides a PM::MapScreen, extracted from the
-popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
+ProMotion-mapbox provides a PM::MapScreen that users [Mapbox](https://www.mapbox.com) as the map provider. Forked from the
+popular RubyMotion gem [ProMotion-map](https://github.com/clearsightstudio/ProMotion-map).
 
 ## Installation
 
 ```ruby
-gem 'ProMotion-map'
+gem 'ProMotion-mapbox'
 ```
+```ruby
+rake pod:install
+```
+
 
 ## Usage
 
@@ -29,39 +33,40 @@ class MyMapScreen < PM::MapScreen
       latitude: 35.090648651123,
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
-      action: :show_forest,
+      left_action: :show_forest,
       pin_color: :green
     },{
       longitude: -82.966093558105,
       latitude: 35.092520895652,
       title: "Turtleback Falls",
       subtitle: "Nantahala National Forest",
-      action: :show_forest,
-      pin_color: MKPinAnnotationColorPurple
+      left_action: :show_forest,
+      left_action_button_type: UIButtonTypeContactAdd,
+      pin_color: :red
     },{
       longitude: -82.95916,
       latitude: 35.07496,
       title: "Windy Falls",
-      action: :show_forest
+      left_action: :show_forest
     },{
       longitude: -82.943031505056,
       latitude: 35.102516828489,
       title: "Upper Bearwallow Falls",
       subtitle: "Gorges State Park",
-      action: :show_forest
+      left_action: :show_forest
     },{
       longitude: -82.956244328014,
       latitude: 35.085548421623,
       title: "Stairway Falls",
       subtitle: "Gorges State Park",
       your_param: "CustomWhatever",
-      action: :show_forest
+      right_action: :show_forest
     },{
       coordinate: CLLocationCoordinate2DMake(35.090648651123, -82.965972900391),
       title: "Rainbow Falls",
       subtitle: "Nantahala National Forest",
       image: UIImage.imageNamed("custom-pin"),
-      action: :show_forest
+      left_action: :show_forest
     }]
   end
 
@@ -76,7 +81,7 @@ Here's a neat way to zoom into a specific marker in an animated fashion and then
 
 ```ruby
 def zoom_to_marker(marker)
-  set_region region(coordinate: marker.coordinate, span: [0.05, 0.05])
+    set_region region(coordinate: marker.coordinate, radius: 5) # Radius are specified in nautical miles.
   select_annotation marker
 end
 ```
@@ -103,7 +108,7 @@ All possible properties:
     title: "Stairway Falls", # REQUIRED
     subtitle: "Gorges State Park",
     image: "my_custom_image",
-    pin_color: :red, # Defaults to :red. Other options are :green or :purple or any MKPinAnnotationColor
+    pin_color: :red, # Defaults to :red. Other options are :green or :purple. Here as a placeholder only. Modifying a marker color is not yet supported by the Mapbox GL SDK.
     left_accessory: my_button,
     right_accessory: my_other_button,
     action: :my_action, # Overrides :right_accessory
@@ -116,6 +121,8 @@ You may pass whatever properties you want in the annotation hash, but (`:longitu
 Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
 
 Use `:left_accessory` and `:right_accessory` to specify a custom accessory, like a button.
+
+Use `:left_action` and `:right_action` to specify an action for the left or right accessory view. These properties will create a button for you, and should not be used in conjunction with `:left_accessory` or `:right_accessory`. The type of the button can be specified with the optional parameter `:right_action_button_type`, and defaults to UIButtonTypeDetailDisclosure if not specified.
 
 You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.params[:your_param]`.
 
@@ -170,7 +177,7 @@ Returns a `CLLocation2D` object of the user's location or `nil` if the user loca
 
 #### zoom_to_user(radius = 0.05, animated=true)
 
-Zooms to the user's location. If the user's location is not currently being shown on the map, it will show it first. `radius` is a `CLLocationDegrees` of the latitude and longitude deltas. _See Apple documentation for `MKCoordinateSpan` for more information._
+Zooms to the user's location. If the user's location is not currently being shown on the map, it will show it first. `radius` is the distance in nautical miles from the center point (user location) to the corners of a virtual bounding box.
 
 #### select_annotation(annotation, animated=true)
 
@@ -208,20 +215,17 @@ Changes the zoom and center point of the `MapScreen` to fit all the annotations.
 
 Sets the region of the `MapScreen`. `region` should be an instance of `MKCoordinateRegion`.
 
-#### region(params)
+#### region(center_location,radius=10)
 
-Helper method to create an `MKCoordinateRegion`. Expects a hash in the form of:
+Mapbox doesn't use the concept of regions. Instead, we can zoom to a virtual bounding box defined by its Sourthwest and Northeast
+corners.
+The ```region``` methods takes a ```center_location``` and a radius. The distance from the center to the corners (and thus the zoom level) will be the ```radius``` times 1820 meters (1 Nautical mile)
 
 ```ruby
 my_region = region({
-  coordinate:{
-    latitude: 35.0906,
-    longitude: -82.965
-  },
-  # span is the latitude and longitude delta
-  span: [0.5, 0.5]
+  CLLocationCoordinate2D.new(35.0906,-82.965),
+  radius: 11
 })
-```
 
 ---
 
@@ -359,7 +363,7 @@ rotate_enabled = (bool)enabled
 
 #### `map` or `mapview`
 
-Reference to the created UIMapView.
+Reference to the created MLGMapView.
 
 ## Contributing
 

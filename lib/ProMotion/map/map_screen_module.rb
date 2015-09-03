@@ -9,7 +9,7 @@ module ProMotion
 
     def screen_setup
       self.view = nil
-      self.view = MKMapView.alloc.initWithFrame(self.view.bounds)
+      self.view = MGLMapView.alloc.initWithFrame(self.view.bounds, styleURL: self.class.get_map_style)
       self.view.delegate = self
 
       check_annotation_data
@@ -18,8 +18,7 @@ module ProMotion
       set_up_tap_to_add
     end
 
-    def view_will_appear(animated)
-      super
+    def on_appear
       update_annotation_data
     end
 
@@ -65,8 +64,9 @@ module ProMotion
       set_show_user_location false
     end
 
-    def set_show_user_location(show)
+    def set_show_user_location(show,mode=MGLUserTrackingModeFollow)
       self.view.showsUserLocation = show
+      self.view.userTrackingMode = mode
     end
 
     def showing_user_location?
@@ -83,7 +83,7 @@ module ProMotion
 
     def zoom_to_user(radius = 0.05, animated=true)
       show_user_location unless showing_user_location?
-      set_region(MKCoordinateRegionMake(user_location, [radius, radius]), animated)
+      set_region(create_region(user_location,radius), animated)
     end
 
     def annotations
@@ -120,50 +120,14 @@ module ProMotion
       self.view.addAnnotations @promotion_annotation_data
     end
 
-    def clear_annotations
-      @promotion_annotation_data.each do |a|
-        self.view.removeAnnotation(a)
-      end
-      @promotion_annotation_data = []
+    def clear_annotation(annotation)
+      self.view.removeAnnotation(annotation)
+      @promotion_annotation_data.delete(annotation)
     end
 
-    def annotation_view(map_view, annotation)
-      return if annotation.is_a? MKUserLocation
-
-      params = annotation.params
-
-      identifier = params[:identifier]
-      if view = map_view.dequeueReusableAnnotationViewWithIdentifier(identifier)
-        view.annotation = annotation
-      else
-        # Set the pin properties
-        if params[:image]
-          view = MKAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
-        else
-          view = MKPinAnnotationView.alloc.initWithAnnotation(annotation, reuseIdentifier:identifier)
-        end
-      end
-      view.image = params[:image] if view.respond_to?("image=") && params[:image]
-      view.animatesDrop = params[:animates_drop] if view.respond_to?("animatesDrop=")
-      view.pinColor = (PIN_COLORS[params[:pin_color]] || params[:pin_color]) if view.respond_to?("pinColor=")
-      view.canShowCallout = params[:show_callout] if view.respond_to?("canShowCallout=")
-
-      if params[:left_accessory]
-        view.leftCalloutAccessoryView = params[:left_accessory]
-      end
-      if params[:right_accessory]
-        view.rightCalloutAccessoryView = params[:right_accessory]
-      end
-
-      if params[:action]
-        button_type = params[:action_button_type] || UIButtonTypeDetailDisclosure
-
-        action_button = UIButton.buttonWithType(button_type)
-        action_button.addTarget(self, action: params[:action], forControlEvents:UIControlEventTouchUpInside)
-
-        view.rightCalloutAccessoryView = action_button
-      end
-      view
+    def clear_annotations
+      self.view.removeAnnotations(@promotion_annotation_data)
+      @promotion_annotation_data = []
     end
 
     def set_start_position(params={})
@@ -173,10 +137,8 @@ module ProMotion
         radius: 10
       }.merge(params)
 
-      meters_per_mile = 1609.344
-
       initialLocation = CLLocationCoordinate2D.new(params[:latitude], params[:longitude])
-      region = MKCoordinateRegionMakeWithDistance(initialLocation, params[:radius] * meters_per_mile, params[:radius] * meters_per_mile)
+      region = create_region(initialLocation,params[:radius])
       set_region(region, animated:false)
     end
 
@@ -264,19 +226,62 @@ module ProMotion
     end
 
     def set_region(region, animated=true)
-      self.view.setRegion(region, animated:animated)
+      self.view.setVisibleCoordinateBounds(
+        [region[:southWest], region[:northEast]],
+        animated: animated
+      )
     end
 
-    def region(params)
-      return nil unless params.is_a? Hash
+    ###### REGION SETTINGS #######
+    def deg_to_rad(angle)
+      angle*Math::PI/180
+    end
 
-      params[:coordinate] = CLLocationCoordinate2D.new(params[:coordinate][:latitude], params[:coordinate][:longitude]) if params[:coordinate].is_a? Hash
-      params[:span] = MKCoordinateSpanMake(params[:span][0], params[:span][1]) if params[:span].is_a? Array
+    def rad_to_deg(angle)
+      angle*180/Math::PI
+    end
 
-      if params[:coordinate] && params[:span]
-        MKCoordinateRegionMake( params[:coordinate], params[:span] )
+    # Input coordinates and bearing in decimal degrees, distance in kilometers
+    def point_from_location_bearing_and_distance(initialLocation, bearing, distance)
+      distance = distance / 6371.01 # Convert to angular radians dividing by the Earth radius
+      bearing = deg_to_rad(bearing)
+      input_latitude = deg_to_rad(initialLocation.latitude)
+      input_longitude = deg_to_rad(initialLocation.longitude)
+
+      output_latitude = Math.asin( 
+                          Math.sin(input_latitude) * Math.cos(distance) + 
+                          Math.cos(input_latitude) * Math.sin(distance) * 
+                          Math.cos(bearing)
+                        )
+
+      dlon = input_longitude + Math.atan2(
+                                Math.sin(bearing) * Math.sin(distance) * 
+                                Math.cos(input_longitude), Math.cos(distance) - 
+                                Math.sin(input_longitude) * Math.sin(output_latitude)
+                              )
+
+      output_longitude = (dlon + 3*Math::PI) % (2*Math::PI) - Math::PI  
+      CLLocationCoordinate2DMake(rad_to_deg(output_latitude), rad_to_deg(output_longitude))
+    end
+
+    def create_region(initialLocation,radius=10)
+      return nil unless initialLocation.is_a? CLLocationCoordinate2D
+      radius = radius * 1.820 # Meters equivalent to 1 Nautical Mile
+      southWest = self.point_from_location_bearing_and_distance(initialLocation,225, radius)
+      northEast = self.point_from_location_bearing_and_distance(initialLocation,45, radius)
+      {:southWest => southWest, :northEast => northEast}
+    end
+    alias_method :region, :create_region
+
+    ##### END REGION SETTINGS ######
+    ##### MAP STYLE SETTINGS  ######
+    def set_map_style
+      if self.class.respond_to?(:get_map_style)
+          self.view.styleURL = self.class.get_map_style
       end
     end
+    ##### END MAP STYLE SETTINGS  ######
+
 
     def look_up_address(args={}, &callback)
       args[:address] = args if args.is_a? String # Assume if a string is passed that they want an address
@@ -299,11 +304,55 @@ module ProMotion
       end
     end
 
-    ########## Cocoa touch methods #################
-    def mapView(map_view, viewForAnnotation:annotation)
-      annotation_view(map_view, annotation)
+    ########## Mapbox GL methods #################
+    def mapView(mapView, annotationCanShowCallout: annotation)
+      return nil if annotation.is_a? MGLUserLocation
+      annotation.params[:show_callout]
     end
 
+    def mapView(mapView, imageForAnnotation: annotation)
+      return nil unless annotation.params[:image]
+      annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(annotation.params[:image])
+      if !annotationImage
+        image = UIImage.imageNamed(annotation.params[:image])
+        annotationImage = MGLAnnotationImage.annotationImageWithImage(image, reuseIdentifier: annotation.params[:image])
+        return annotationImage
+      end
+    end
+
+    def mapView(mapview, leftCalloutAccessoryViewForAnnotation: annotation)
+      if annotation.params[:left_action]
+        button_type = annotation.params[:left_action_button_type] || UIButtonTypeDetailDisclosure
+        action_button = UIButton.buttonWithType(button_type)
+
+        action_button
+      else
+        annotation.left_accessory
+      end
+    end
+
+    def mapView(mapview, rightCalloutAccessoryViewForAnnotation: annotation)
+      if annotation.params[:right_action]
+        button_type = annotation.params[:right_action_button_type] || UIButtonTypeDetailDisclosure
+        action_button = UIButton.buttonWithType(button_type)
+        action_button.tag = 1
+
+        action_button
+      else
+        annotation.right_accessory
+      end
+    end
+
+    def mapView(mapView, annotation: annotation, calloutAccessoryControlTapped: accessory)
+      return nil unless annotation.params[:left_action] || annotation.params[:right_action]
+      if accessory.tag == 1
+        self.send(annotation.params[:right_action])
+      else
+        self.send(annotation.params[:left_action])
+      end
+    end
+
+    ########## Cocoa touch methods #################
     def mapView(map_view, didUpdateUserLocation:userLocation)
       if self.respond_to?(:on_user_location)
         on_user_location(userLocation)
@@ -375,6 +424,14 @@ module ProMotion
 
       def get_tap_to_add
         @tap_to_add ||= false
+      end
+
+      def map_style(style)
+        @map_style_url = NSURL.URLWithString("asset://styles/#{style}.json")
+      end
+
+      def get_map_style
+        @map_style_url ||= map_style(:light)
       end
 
 
