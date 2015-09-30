@@ -24,7 +24,7 @@ module ProMotion
     end
 
     def check_annotation_data
-      PM.logger.error "Missing #annotation_data method in MapScreen #{self.class.to_s}." unless self.respond_to?(:annotation_data)
+      mp "Missing #annotation_data method in MapScreen #{self.class.to_s}.", force_color: :red unless self.respond_to?(:annotation_data)
     end
 
     def update_annotation_data
@@ -42,8 +42,8 @@ module ProMotion
     end
 
     def center=(params={})
-      PM.logger.error "Missing #:latitude property in call to #center=." unless params[:latitude]
-      PM.logger.error "Missing #:longitude property in call to #center=." unless params[:longitude]
+      mp "Missing #:latitude property in call to #center=.", force_color: :red unless params[:latitude]
+      mp "Missing #:longitude property in call to #center=.", force_color: :red unless params[:longitude]
       params[:animated] ||= true
 
       # Set the new region
@@ -294,7 +294,7 @@ module ProMotion
         geocoder = CLGeocoder.new
         geocoder.reverseGeocodeLocation(location, completionHandler: callback)
       else
-        PM.logger.info("You're trying to reverse geocode something that isn't a CLLocation")
+        mp "You're trying to reverse geocode something that isn't a CLLocation", force_color: :green
         callback.call nil, nil
       end
     end
@@ -308,7 +308,7 @@ module ProMotion
       if self.respond_to?(:on_user_location)
         on_user_location(userLocation)
       else
-        PM.logger.info "You're tracking the user's location but have not implemented the #on_user_location(location) method in MapScreen #{self.class.to_s}."
+        mp "You're tracking the user's location but have not implemented the #on_user_location(location) method in MapScreen #{self.class.to_s}.", force_color: :green
       end
     end
 

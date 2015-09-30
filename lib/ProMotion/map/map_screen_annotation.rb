@@ -14,7 +14,7 @@ module ProMotion
       elsif @params[:latitude] && @params[:longitude]
         @coordinate = CLLocationCoordinate2D.new(@params[:latitude], @params[:longitude])
       else
-        PM.logger.error("You are required to specify :latitude and :longitude or :coordinate for annotations.")
+        mp "You are required to specify :latitude and :longitude or :coordinate for annotations.", force_color: :red
         nil
       end
     end
@@ -57,14 +57,14 @@ module ProMotion
       if @params[meth.to_sym]
         @params[meth.to_sym]
       else
-        PM.logger.warn "The annotation parameter \"#{meth}\" does not exist on this pin."
+        mp "The annotation parameter \"#{meth}\" does not exist on this pin."
         nil
       end
     end
 
     # Deprecated
     def annotation_params
-      PM.logger.warn("annotation.annotation_params is deprecated and will be removed soon. Please use annotation.params instead.")
+      mp "annotation.annotation_params is deprecated and will be removed soon. Please use annotation.params instead."
       @params
     end
 
