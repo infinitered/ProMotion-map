@@ -41,7 +41,7 @@ module ProMotion
       self.view.centerCoordinate
     end
 
-    def center=(params={})
+    def set_center(params={})
       PM.logger.error "Missing #:latitude property in call to #center=." unless params[:latitude]
       PM.logger.error "Missing #:longitude property in call to #center=." unless params[:longitude]
       params[:animated] ||= true
