@@ -141,6 +141,10 @@ Sets the center of the map. `animated` property defaults to `true`.
 
 Shows the user's location on the map. Must be called in the view initialization sequence on `will_appear` or _after_.
 
+#### track_user_location({ heading: true })
+
+Causes the map view to center the map on that location and begin tracking the user’s location. `heading` defaults to false but will provide a compass heading if set to true.
+
 #### look_up_location(CLLocation) { |placemark, error| }
 
 This method takes a CLLocation object and will return one to many CLPlacemark to represent nearby data.

@@ -73,6 +73,15 @@ module ProMotion
       self.view.showsUserLocation
     end
 
+    def track_user_location params={}
+      params = {heading: false}.merge(params)
+      set_track_user_location params[:heading]
+    end
+
+    def set_track_user_location heading
+      self.view.userTrackingMode = heading ? MKUserTrackingModeFollowWithHeading : MKUserTrackingModeFollow
+    end
+
     def user_location
       user_annotation.nil? ? nil : user_annotation.coordinate
     end
