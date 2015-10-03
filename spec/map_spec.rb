@@ -87,10 +87,7 @@ describe "map properties" do
       another_value: "Mark"
     }
     @map.add_annotation(ann)
-    old_lev = PM.logger.level
-    PM.logger.level = :none
     @map.annotations.last.another_value_fake.should == nil
-    PM.logger.level = old_lev
   end
 
   it "should clear annotations" do
