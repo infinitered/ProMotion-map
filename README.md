@@ -5,7 +5,7 @@
 ProMotion-map provides a PM::MapScreen, extracted from the
 popular RubyMotion gem [ProMotion](https://github.com/clearsightstudio/ProMotion).
 
-ProMotion-map is maintained by ![Infinite Red](http://infinite.red), a web and mobile development company based in Portland, OR and San Francisco, CA.
+ProMotion-map is maintained by [Infinite Red](http://infinite.red), a web and mobile development company based in Portland, OR and San Francisco, CA.
 
 ## Installation
 
