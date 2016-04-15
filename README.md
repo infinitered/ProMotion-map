@@ -108,6 +108,7 @@ All possible properties:
     pin_color: :red, # Defaults to :red. Other options are :green or :purple or any MKPinAnnotationColor
     left_accessory: my_button,
     right_accessory: my_other_button,
+    detail_accessory: my_custom_view,
     action: :my_action, # Overrides :right_accessory
     action_button_type: UIButtonTypeContactAdd # Defaults to UIButtonTypeDetailDisclosure
 }
@@ -118,6 +119,8 @@ You may pass whatever properties you want in the annotation hash, but (`:longitu
 Use `:image` to specify a custom image. Pass in a string to conserve memory and it will be converted using `UIImage.imageNamed(your_string)`. If you pass in a `UIImage`, we'll use that, but keep in mind that there will be another unnecessary copy of the UIImage in memory.
 
 Use `:left_accessory` and `:right_accessory` to specify a custom accessory, like a button.
+
+Use `:detail_accessory` to specify a detail accessory that will be positioned below the title, any UIView will work. This will override `:subtitle`. Available from iOS 9.0.
 
 You can access annotation data you've arbitrarily stored in the hash by calling `annotation_instance.params[:your_param]`.
 

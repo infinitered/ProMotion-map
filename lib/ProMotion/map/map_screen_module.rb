@@ -163,6 +163,9 @@ module ProMotion
       if params[:right_accessory]
         view.rightCalloutAccessoryView = params[:right_accessory]
       end
+      if params[:detail_accessory]
+        view.detailCalloutAccessoryView = params[:detail_accessory]
+      end
 
       if params[:action]
         button_type = params[:action_button_type] || UIButtonTypeDetailDisclosure

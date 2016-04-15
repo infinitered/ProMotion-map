@@ -196,6 +196,21 @@ describe "ProMotion::TestMapScreen functionality" do
     v.rightCalloutAccessoryView.should == btn
   end
 
+  it "should allow setting a detailCalloutAccessoryView" do
+    img = UIImage.imageNamed("test.png")
+    ann = {
+      longitude: -82.965972900392,
+      latitude: 35.090648651124,
+      title: "My Cool Image Pin",
+      detail_accessory: img
+    }
+    map_screen.add_annotation ann
+    annot = map_screen.annotations.last
+    annot.should.be.kind_of?(ProMotion::MapScreenAnnotation)
+    v = map_screen.annotation_view(map_screen.view, annot)
+    v.detailCalloutAccessoryView.should == img
+  end
+
   it "should call the correct action when set on an annotation" do
     ann = default_annotation.merge({
       action: :my_action
