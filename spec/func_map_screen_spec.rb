@@ -197,7 +197,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   it "should allow setting a detailCalloutAccessoryView" do
-    img = UIImage.imageNamed("test.png")
+    img = UIImageView.alloc.initWithImage(UIImage.imageNamed("test.png"))
     ann = {
       longitude: -82.965972900392,
       latitude: 35.090648651124,
