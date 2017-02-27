@@ -1,0 +1,10 @@
+PODS:
+  - Mapbox-iOS-SDK (2.0.0)
+
+DEPENDENCIES:
+  - Mapbox-iOS-SDK
+
+SPEC CHECKSUMS:
+  Mapbox-iOS-SDK: 07b84769693242f0e20eeed03d38515beca93c5b
+
+COCOAPODS: 0.38.2

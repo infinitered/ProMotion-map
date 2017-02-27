@@ -25,7 +25,10 @@ module ProMotion
         pin_color: :red,
         identifier: "Annotation-#{@params[:pin_color]}-#{@params[:image]}",
         show_callout: true,
-        animates_drop: false
+        animates_drop: false,
+        image: nil,
+        left_accessory: nil,
+        right_accessory: nil,
       }.merge(@params)
     end
 
@@ -39,6 +42,14 @@ module ProMotion
 
     def coordinate
       @coordinate
+    end
+
+    def left_accessory
+      @params[:left_accessory]
+    end
+
+    def right_accessory
+      @params[:right_accessory]
     end
 
     def cllocation

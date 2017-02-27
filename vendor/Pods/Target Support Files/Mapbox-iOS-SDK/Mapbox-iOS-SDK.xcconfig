@@ -1,0 +1,3 @@
+MAPBOX_IOS_SDK_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Mapbox-iOS-SDK"
+MAPBOX_IOS_SDK_OTHER_CPLUSPLUSFLAGS = -std=gnu++11 -stdlib=libc++
+MAPBOX_IOS_SDK_OTHER_LDFLAGS = -ObjC -l"Mapbox" -l"c++" -l"sqlite3" -l"z" -framework "CoreLocation" -framework "CoreTelephony" -framework "GLKit" -framework "ImageIO" -framework "MobileCoreServices" -framework "QuartzCore" -framework "SystemConfiguration"

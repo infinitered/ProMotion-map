@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Mapbox iOS SDK 2.0.0 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">Mapbox iOS SDK 2.0.0 </a></h1>
+				<a id="developerHome" href="index.html">Mapbox</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">Mapbox iOS SDK 2.0.0 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">Mapbox iOS SDK 2.0.0 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>Mapbox iOS SDK</h1>
+
+<p>An open source OpenGL-based vector map solution for iOS with full styling capabilities and Cocoa bindings.</p>
+
+<p>For more information, check out <a href="https://www.mapbox.com/mapbox-gl-ios/">our online overview</a>.</p>
+
+<p><a href=""><img src="https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/ios/screenshot.png" alt="" /></a></p>
+
+<h2>Changelog</h2>
+
+<h2>iOS 2.0.0</h2>
+
+<p>Repackaging 2.0.0-pre.1 as it contained no issues.</p>
+
+<h2>iOS 2.0.0-pre.1</h2>
+
+<p>Repackaging 0.5.1 as the Mapbox iOS SDK 2.0.0 series.</p>
+
+<h2>0.5.1</h2>
+
+<h3>iOS</h3>
+
+<ul>
+<li>Added support for CocoaPods 0.38.0. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1876">#1876</a>)</li>
+</ul>
+
+
+<h2>0.5.0</h2>
+
+<h3>Core</h3>
+
+<ul>
+<li>Support for runtime marker imagery. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/941">#941</a>)</li>
+<li>Added <code>Map::fitBounds()</code> for region-based viewport setting. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1092">#1092</a>)</li>
+<li>Added a raster satellite bundled style and improved raster rendering. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/963">#963</a>)</li>
+<li>Improved round line joins for semi-transparent lines. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1839">#1839</a>)</li>
+<li>Improved map render lifecycle notifications. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1026">#1026</a>)</li>
+<li>Fixed a bug that caused annotations not to show at zoom level zero. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1279">#1279</a>)</li>
+<li>Fixed a bug with the ordering of shape layers. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1866">#1866</a>)</li>
+<li>Other bug fixes and performance improvements.</li>
+</ul>
+
+
+<h3>iOS</h3>
+
+<ul>
+<li><strong>Breaking:</strong> Headers now make use of lightweight generics, eliminating many unnecessary casts when working with annotations in Swift 2.0 in Xcode 7. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1711">#1711</a>)</li>
+<li><strong>Breaking:</strong> <code>-mapView:symbolNameForAnnotation:</code> has been removed from the <a href="Protocols/MGLMapViewDelegate.html"><code>MGLMapViewDelegate</code></a> protocol. Implement <code>-mapView:imageForAnnotation:</code> instead, which accepts images at runtime. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/941">#941</a>)</li>
+<li><strong>Breaking:</strong> <code></code>MGLMapView<code>.direction</code> is now expressed in terms of degrees clockwise from true north, as indicated in the documentation, rather than counterclockwise. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1789">#1789</a>)</li>
+<li>A Satellite style showing Mapbox Satellite imagery is now bundled with Mapbox GL. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1845">#1845</a>)</li>
+<li>Improved <code>UIView</code> tracking to the map. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1813">#1813</a>)</li>
+<li>Delegate method <code>-[MGLMapViewDelegate mapView:didFailToLocateUserWithError:]</code> now works. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1608">#1608</a>)</li>
+<li>It is now possible to fit the map’s viewport to a coordinate bounding box via <code>-[MGLMapView setVisibleCoordinateBounds:animated:]</code> or to a specific set of coordinates via <code>[MGLMapView setVisibleCoordinates:count:edgePadding:animated:]</code>. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1783">#1783</a>, <a href="https://github.com/mapbox/mapbox-gl-native/pull/1795">#1795</a>)</li>
+<li>The logo and ℹ️ no longer disappear or get distorted after embedding <a href="Classes/MGLMapView.html">MGLMapView</a> in a different view, and you can now access these subviews directly via properties on <a href="Classes/MGLMapView.html">MGLMapView</a>. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1779">#1779</a>, <a href="https://github.com/mapbox/mapbox-gl-native/pull/1815">#1815</a>)</li>
+<li>Raster tiles now look sharper midway between two zoom levels. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1843">#1843</a>)</li>
+<li>Resetting the map rotation to north no longer also resets the user location tracking mode. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1809">#1809</a>)</li>
+<li><code>-[MGLMapView convertPoint:toCoordinateFromView:]</code> now returns accurate coordinates on iPhone 6. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1827">#1827</a>)</li>
+<li>Fixed an issue in which <code>-[MGLMapView direction]</code> would sometimes return 360 instead of 0. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1829">#1829</a>)</li>
+<li>Build against iOS 8.4. (<a href="https://github.com/mapbox/mapbox-gl-native/pull/1868">#1868</a>)</li>
+</ul>
+
+
+<h2>0.4.0</h2>
+
+<h3>Core</h3>
+
+<ul>
+<li>Support for polyline and polygon shape annotations. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1655">#1655</a>)</li>
+<li>Improved placement and density of labels. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1666">#1666</a>, <a href="https://www.mapbox.com/blog/better-label-placement-mapbox-mobile/">blog</a>)</li>
+<li>Improved z-ordering appearance of point markers. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/988">#988</a>)</li>
+<li>Fixed an issue in which certain features, such as roundabouts, were not rendered completely. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1725">#1725</a>)</li>
+<li>Many bug fixes and performance and stability improvements.</li>
+<li>Improved tests.</li>
+</ul>
+
+
+<h3>iOS</h3>
+
+<ul>
+<li><strong>Breaking:</strong> <a href="Classes/MGLMapView.html"><code>MGLMapView</code></a> no longer manages Mapbox access tokens directly; an access token cannot be passed in when initializing the map view. Instead, set <code>MGLMapboxAccessToken</code> to your access token in your app’s <code>Info.plist</code> file, or call <code>+[MGLAccountManager setAccessToken:]</code> before initializing the map view. If you were setting the access token inside an Interface Builder inspectable, also remove it from the User Defined Runtime Attributes section of the Identity inspector. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1553">#1553</a>)</li>
+<li><strong>Breaking:</strong> <a href="Classes/MGLAccountManager.html"><code>MGLAccountManager</code></a>&rsquo;s <code>-setMapboxMetricsEnabledSettingShownInApp:</code> has been removed. If you implement a Mapbox Metrics switch inside your app, instead of inside a Settings bundle, set <code>MGLMapboxMetricsEnabledSettingShownInApp</code> to <code>YES</code> in the <code>Info.plist</code> file. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1553">#1553</a>)</li>
+<li><strong>Breaking:</strong> <a href="Classes/MGLMapView.html"><code>MGLMapView</code></a>&rsquo;s <code>-mapID</code> has been renamed to <code>-styleID</code>. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1561">#1561</a>)</li>
+<li>Headers have been audited for nullability, improving type safety in both Objective-C and Swift 1.2 when compiling with Xcode 6.3 or above. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1578">#1578</a>)</li>
+<li>Fixed an issue in which the map would sometimes spin 180° while rotating the map with two fingers. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1453">#1453</a>)</li>
+<li>Added a shortcut to the Mapbox Metrics switch in <a href="Classes/MGLMapView.html"><code>MGLMapView</code></a>&rsquo;s action sheet that is attached to the ℹ️ button. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1611">#1611</a>)</li>
+<li><a href="Classes/MGLMapView.html"><code>MGLMapView</code></a> now supports Interface Builder designables. When you add an <a href="Classes/MGLMapView.html"><code>MGLMapView</code></a> to a storyboard, it displays instructions for getting set up directly on the storyboard canvas. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1573">#1573</a>)</li>
+<li>The default title for the user location annotation is now “You Are Here”. You can customize the title by setting <code>mapView.userAnnotation.title</code>. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1559">#1559</a>)</li>
+<li>Internal use of the Reachability library has been cleaned up so that your app can include its own copy of Reachability. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1718">#1718</a>)</li>
+<li>Now distribute a binary stripped of debugging symbols by default with an optional, secondary symbols build. (<a href="https://github.com/mapbox/mapbox-gl-native/issues/1650">#1650</a>)</li>
+</ul>
+
+
+<h2>0.3.1</h2>
+
+<ul>
+<li>Temporarily removed <code>IBDesignable</code> support on iOS.</li>
+</ul>
+
+
+<h2>0.3.0</h2>
+
+<ul>
+<li>Initial iOS beta release.</li>
+</ul>
+
+
+<p>Known issues:</p>
+
+<ul>
+<li>None.</li>
+</ul>
+
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/MGLAccountManager.html">MGLAccountManager</a></li>
+							
+							<li><a href="Classes/MGLMapView.html">MGLMapView</a></li>
+							
+							<li><a href="Classes/MGLMultiPoint.html">MGLMultiPoint</a></li>
+							
+							<li><a href="Classes/MGLPointAnnotation.html">MGLPointAnnotation</a></li>
+							
+							<li><a href="Classes/MGLPolygon.html">MGLPolygon</a></li>
+							
+							<li><a href="Classes/MGLPolyline.html">MGLPolyline</a></li>
+							
+							<li><a href="Classes/MGLShape.html">MGLShape</a></li>
+							
+							<li><a href="Classes/MGLUserLocation.html">MGLUserLocation</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/MGLAnnotation.html">MGLAnnotation</a></li>
+							
+							<li><a href="Protocols/MGLMapViewDelegate.html">MGLMapViewDelegate</a></li>
+							
+							<li><a href="Protocols/MGLOverlay.html">MGLOverlay</a></li>
+							
+						</ul>
+						
+                        
+						<h2 class="index-title">Constant References</h2>
+						<ul>
+                        
+                        <li><a href="Constants/MGLUserTrackingMode.html">MGLUserTrackingMode</a></li>
+                        
+						</ul>
+						
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-08-24)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

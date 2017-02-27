@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MGLMapViewDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.0.0 </a></h1>
+				<a id="developerHome" href="../index.html">Mapbox</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MGLMapViewDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/mapView:alphaForShapeAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:alphaForShapeAnnotation:</option>
+	
+	<option value="//api/name/mapView:annotationCanShowCallout:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:annotationCanShowCallout:</option>
+	
+	<option value="//api/name/mapView:didChangeUserTrackingMode:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:didChangeUserTrackingMode:animated:</option>
+	
+	<option value="//api/name/mapView:didFailToLocateUserWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:didFailToLocateUserWithError:</option>
+	
+	<option value="//api/name/mapView:didUpdateUserLocation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:didUpdateUserLocation:</option>
+	
+	<option value="//api/name/mapView:fillColorForPolygonAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:fillColorForPolygonAnnotation:</option>
+	
+	<option value="//api/name/mapView:imageForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:imageForAnnotation:</option>
+	
+	<option value="//api/name/mapView:leftCalloutAccessoryViewForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:leftCalloutAccessoryViewForAnnotation:</option>
+	
+	<option value="//api/name/mapView:lineWidthForPolylineAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:lineWidthForPolylineAnnotation:</option>
+	
+	<option value="//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:rightCalloutAccessoryViewForAnnotation:</option>
+	
+	<option value="//api/name/mapView:strokeColorForShapeAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- mapView:strokeColorForShapeAnnotation:</option>
+	
+	<option value="//api/name/mapViewDidStopLocatingUser:">&nbsp;&nbsp;&nbsp;&nbsp;- mapViewDidStopLocatingUser:</option>
+	
+	<option value="//api/name/mapViewWillStartLocatingUser:">&nbsp;&nbsp;&nbsp;&nbsp;- mapViewWillStartLocatingUser:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing the Display of Annotations">Managing the Display of Annotations</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Tracking the User Location">Tracking the User Location</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:alphaForShapeAnnotation:">mapView:alphaForShapeAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:annotationCanShowCallout:">mapView:annotationCanShowCallout:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:didChangeUserTrackingMode:animated:">mapView:didChangeUserTrackingMode:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:didFailToLocateUserWithError:">mapView:didFailToLocateUserWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:didUpdateUserLocation:">mapView:didUpdateUserLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:fillColorForPolygonAnnotation:">mapView:fillColorForPolygonAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:imageForAnnotation:">mapView:imageForAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:leftCalloutAccessoryViewForAnnotation:">mapView:leftCalloutAccessoryViewForAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:lineWidthForPolylineAnnotation:">mapView:lineWidthForPolylineAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">mapView:rightCalloutAccessoryViewForAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapView:strokeColorForShapeAnnotation:">mapView:strokeColorForShapeAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapViewDidStopLocatingUser:">mapViewDidStopLocatingUser:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapViewWillStartLocatingUser:">mapViewWillStartLocatingUser:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MGLMapViewDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MGLMapViewDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MGLMapView.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The MGLMapViewDelegate protocol defines a set of optional methods that you can use to receive map-related update messages. Because many map operations require the <a href="../Classes/MGLMapView.html">MGLMapView</a> class to load data asynchronously, the map view calls these methods to notify your application when specific operations complete. The map view also uses these methods to request annotation marker symbology and to manage interactions with those markers.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Managing the Display of Annotations" name="task_Managing the Display of Annotations"></a>
+						<h3 class="subsubtitle task-title">Managing the Display of Annotations</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:imageForAnnotation:">&ndash;&nbsp;mapView:imageForAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:alphaForShapeAnnotation:">&ndash;&nbsp;mapView:alphaForShapeAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:strokeColorForShapeAnnotation:">&ndash;&nbsp;mapView:strokeColorForShapeAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:fillColorForPolygonAnnotation:">&ndash;&nbsp;mapView:fillColorForPolygonAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:lineWidthForPolylineAnnotation:">&ndash;&nbsp;mapView:lineWidthForPolylineAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:annotationCanShowCallout:">&ndash;&nbsp;mapView:annotationCanShowCallout:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:leftCalloutAccessoryViewForAnnotation:">&ndash;&nbsp;mapView:leftCalloutAccessoryViewForAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:rightCalloutAccessoryViewForAnnotation:">&ndash;&nbsp;mapView:rightCalloutAccessoryViewForAnnotation:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Tracking the User Location" name="task_Tracking the User Location"></a>
+						<h3 class="subsubtitle task-title">Tracking the User Location</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapViewWillStartLocatingUser:">&ndash;&nbsp;mapViewWillStartLocatingUser:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapViewDidStopLocatingUser:">&ndash;&nbsp;mapViewDidStopLocatingUser:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:didUpdateUserLocation:">&ndash;&nbsp;mapView:didUpdateUserLocation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:didFailToLocateUserWithError:">&ndash;&nbsp;mapView:didFailToLocateUserWithError:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapView:didChangeUserTrackingMode:animated:">&ndash;&nbsp;mapView:didChangeUserTrackingMode:animated:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:alphaForShapeAnnotation:" title="mapView:alphaForShapeAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:alphaForShapeAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the alpha value to use when rendering a shape annotation. Defaults to <code>1.0</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)mapView:(MGLMapView *)<em>mapView</em> alphaForShapeAnnotation:(MGLShape *)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view rendering the shape annotation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation being rendered.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An alpha value between <code>0</code> and <code>1.0</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the alpha value to use when rendering a shape annotation. Defaults to <code>1.0</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:annotationCanShowCallout:" title="mapView:annotationCanShowCallout:"></a>
+	<h3 class="subsubtitle method-title">mapView:annotationCanShowCallout:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a Boolean value indicating whether the annotation is able to display extra information in a callout bubble.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)mapView:(MGLMapView *)<em>mapView</em> annotationCanShowCallout:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that requested the annotation callout ability.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The object representing the annotation.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A Boolean indicating whether the annotation should show a callout.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a Boolean value indicating whether the annotation is able to display extra information in a callout bubble.</p>
+
+<p>If the value returned is <code>YES</code>, a standard callout bubble is shown when the user taps a selected annotation. The callout uses the title and subtitle text from the associated annotation object. If there is no title text, though, the annotation will not show a callout. The callout also displays any custom callout views returned by the delegate for the left and right callout accessory views.</p>
+
+<p>If the value returned is <code>NO</code>, the value of the title and subtitle strings are ignored.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:didChangeUserTrackingMode:animated:" title="mapView:didChangeUserTrackingMode:animated:"></a>
+	<h3 class="subsubtitle method-title">mapView:didChangeUserTrackingMode:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the map view’s user tracking mode has changed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapView:(MGLMapView *)<em>mapView</em> didChangeUserTrackingMode:(MGLUserTrackingMode)<em>mode</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that changed its tracking mode.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mode</em></dt>
+			<dd><p>The new tracking mode.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Whether the change caused an animated effect on the map.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the map view’s user tracking mode has changed.</p>
+
+<p>This method is called after the map view asynchronously changes to reflect the new user tracking mode, for example by beginning to zoom or rotate.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:didFailToLocateUserWithError:" title="mapView:didFailToLocateUserWithError:"></a>
+	<h3 class="subsubtitle method-title">mapView:didFailToLocateUserWithError:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that an attempt to locate the user’s position failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapView:(MGLMapView *)<em>mapView</em> didFailToLocateUserWithError:(NSError *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that is tracking the user’s location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>An error object containing the reason why location tracking failed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that an attempt to locate the user’s position failed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:didUpdateUserLocation:" title="mapView:didUpdateUserLocation:"></a>
+	<h3 class="subsubtitle method-title">mapView:didUpdateUserLocation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the location of the user was updated.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapView:(MGLMapView *)<em>mapView</em> didUpdateUserLocation:(nullable MGLUserLocation *)<em>userLocation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that is tracking the user’s location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userLocation</em></dt>
+			<dd><p>The location object representing the user’s latest location. This property may be <code>nil</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the location of the user was updated.</p>
+
+<p>While the showsUserLocation property is set to <code>YES</code>, this method is called whenever a new location update is received by the map view. This method is also called if the map view’s user tracking mode is set to MGLUserTrackingModeFollowWithHeading and the heading changes.</p>
+
+<p>This method is not called if the application is currently running in the background. If you want to receive location updates while running in the background, you must use the Core Location framework.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:fillColorForPolygonAnnotation:" title="mapView:fillColorForPolygonAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:fillColorForPolygonAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the fill color to use when rendering a polygon annotation. Defaults to blue.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIColor *)mapView:(MGLMapView *)<em>mapView</em> fillColorForPolygonAnnotation:(MGLPolygon *)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view rendering the polygon annotation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation being rendered.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A color to use for the polygon interior.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the fill color to use when rendering a polygon annotation. Defaults to blue.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:imageForAnnotation:" title="mapView:imageForAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:imageForAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns an image object to use for the marker for the specified point annotation object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (nullable MGLAnnotationImage *)mapView:(MGLMapView *)<em>mapView</em> imageForAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that requested the annotation image.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The object representing the annotation that is about to be displayed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The image object to display for the specified annotation or <code>nil</code> if you want to display the default marker image.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns an image object to use for the marker for the specified point annotation object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:leftCalloutAccessoryViewForAnnotation:" title="mapView:leftCalloutAccessoryViewForAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:leftCalloutAccessoryViewForAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return the view to display on the left side of the standard callout bubble.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (nullable UIView *)mapView:(MGLMapView *)<em>mapView</em> leftCalloutAccessoryViewForAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view presenting the annotation callout.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The object representing the annotation with the callout.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The accessory view to display.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return the view to display on the left side of the standard callout bubble.</p>
+
+<p>The default value is treated as if <code>nil</code>. The left callout view is typically used to display information about the annotation or to link to custom information provided by your application.</p>
+
+<p>If the view you specify is also a descendant of the <code>UIControl</code> class, you can use the map view’s delegate to receive notifications when your control is tapped. If it does not descend from <code>UIControl</code>, your view is responsible for handling any touch events within its bounds.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:lineWidthForPolylineAnnotation:" title="mapView:lineWidthForPolylineAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:lineWidthForPolylineAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the line width to use when rendering a polyline annotation. Defaults to <code>3.0</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)mapView:(MGLMapView *)<em>mapView</em> lineWidthForPolylineAnnotation:(MGLPolyline *)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view rendering the polygon annotation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation being rendered.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A line width for the polyline.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the line width to use when rendering a polyline annotation. Defaults to <code>3.0</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:rightCalloutAccessoryViewForAnnotation:" title="mapView:rightCalloutAccessoryViewForAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:rightCalloutAccessoryViewForAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return the view to display on the right side of the standard callout bubble.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (nullable UIView *)mapView:(MGLMapView *)<em>mapView</em> rightCalloutAccessoryViewForAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view presenting the annotation callout.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The object representing the annotation with the callout.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The accessory view to display.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Return the view to display on the right side of the standard callout bubble.</p>
+
+<p>The default value is treated is if <code>nil</code>. The right callout view is typically used to link to more detailed information about the annotation. A common view to specify for this property is <code>UIButton</code> object whose type is set to <code>UIButtonTypeDetailDisclosure</code>.</p>
+
+<p>If the view you specify is also a descendant of the <code>UIControl</code> class, you can use the map view’s delegate to receive notifications when your control is tapped. If it does not descend from <code>UIControl</code>, your view is responsible for handling any touch events within its bounds.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapView:strokeColorForShapeAnnotation:" title="mapView:strokeColorForShapeAnnotation:"></a>
+	<h3 class="subsubtitle method-title">mapView:strokeColorForShapeAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the stroke color to use when rendering a shape annotation. Defaults to black.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIColor *)mapView:(MGLMapView *)<em>mapView</em> strokeColorForShapeAnnotation:(MGLShape *)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view rendering the shape annotation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation being rendered.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A color to use for the shape outline.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the stroke color to use when rendering a shape annotation. Defaults to black.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapViewDidStopLocatingUser:" title="mapViewDidStopLocatingUser:"></a>
+	<h3 class="subsubtitle method-title">mapViewDidStopLocatingUser:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the map view has stopped tracking the user’s location.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapViewDidStopLocatingUser:(MGLMapView *)<em>mapView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that is tracking the user’s location.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the map view has stopped tracking the user’s location.</p>
+
+<p>This method is called when the value of the showsUserLocation property changes to <code>NO</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mapViewWillStartLocatingUser:" title="mapViewWillStartLocatingUser:"></a>
+	<h3 class="subsubtitle method-title">mapViewWillStartLocatingUser:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells the delegate that the map view will begin tracking the user’s location.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mapViewWillStartLocatingUser:(MGLMapView *)<em>mapView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>mapView</em></dt>
+			<dd><p>The map view that is tracking the user’s location.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells the delegate that the map view will begin tracking the user’s location.</p>
+
+<p>This method is called when the value of the showsUserLocation property changes to <code>YES</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-08-24)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

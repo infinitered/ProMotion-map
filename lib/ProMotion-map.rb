@@ -9,5 +9,8 @@ Motion::Project::App.setup do |app|
   app.files << File.join(lib_dir_path, "ProMotion/map/map_screen_module.rb")
   app.files << File.join(lib_dir_path, "ProMotion/map/map_screen.rb")
 
-  app.frameworks += %w(CoreLocation MapKit)
+  app.frameworks += %w(CoreLocation MapKit QuartzCore)
+  app.pods do
+    pod 'Mapbox-iOS-SDK'
+  end
 end

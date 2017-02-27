@@ -1,0 +1,3199 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MGLMapView Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Mapbox iOS SDK 2.0.0 </a></h1>
+				<a id="developerHome" href="../index.html">Mapbox</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MGLMapView Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/annotations">&nbsp;&nbsp;&nbsp;&nbsp;annotations</option>
+	
+	<option value="//api/name/attributionButton">&nbsp;&nbsp;&nbsp;&nbsp;attributionButton</option>
+	
+	<option value="//api/name/bundledStyleURLs">&nbsp;&nbsp;&nbsp;&nbsp;bundledStyleURLs</option>
+	
+	<option value="//api/name/centerCoordinate">&nbsp;&nbsp;&nbsp;&nbsp;centerCoordinate</option>
+	
+	<option value="//api/name/compassView">&nbsp;&nbsp;&nbsp;&nbsp;compassView</option>
+	
+	<option value="//api/name/debugActive">&nbsp;&nbsp;&nbsp;&nbsp;debugActive</option>
+	
+	<option value="//api/name/direction">&nbsp;&nbsp;&nbsp;&nbsp;direction</option>
+	
+	<option value="//api/name/displayHeadingCalibration">&nbsp;&nbsp;&nbsp;&nbsp;displayHeadingCalibration</option>
+	
+	<option value="//api/name/logoView">&nbsp;&nbsp;&nbsp;&nbsp;logoView</option>
+	
+	<option value="//api/name/rotateEnabled">&nbsp;&nbsp;&nbsp;&nbsp;rotateEnabled</option>
+	
+	<option value="//api/name/scrollEnabled">&nbsp;&nbsp;&nbsp;&nbsp;scrollEnabled</option>
+	
+	<option value="//api/name/selectedAnnotations">&nbsp;&nbsp;&nbsp;&nbsp;selectedAnnotations</option>
+	
+	<option value="//api/name/showsUserLocation">&nbsp;&nbsp;&nbsp;&nbsp;showsUserLocation</option>
+	
+	<option value="//api/name/styleClasses">&nbsp;&nbsp;&nbsp;&nbsp;styleClasses</option>
+	
+	<option value="//api/name/styleID">&nbsp;&nbsp;&nbsp;&nbsp;styleID</option>
+	
+	<option value="//api/name/styleURL">&nbsp;&nbsp;&nbsp;&nbsp;styleURL</option>
+	
+	<option value="//api/name/userLocation">&nbsp;&nbsp;&nbsp;&nbsp;userLocation</option>
+	
+	<option value="//api/name/userLocationVisible">&nbsp;&nbsp;&nbsp;&nbsp;userLocationVisible</option>
+	
+	<option value="//api/name/userTrackingMode">&nbsp;&nbsp;&nbsp;&nbsp;userTrackingMode</option>
+	
+	<option value="//api/name/visibleCoordinateBounds">&nbsp;&nbsp;&nbsp;&nbsp;visibleCoordinateBounds</option>
+	
+	<option value="//api/name/zoomEnabled">&nbsp;&nbsp;&nbsp;&nbsp;zoomEnabled</option>
+	
+	<option value="//api/name/zoomLevel">&nbsp;&nbsp;&nbsp;&nbsp;zoomLevel</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- addAnnotation:</option>
+	
+	<option value="//api/name/addAnnotations:">&nbsp;&nbsp;&nbsp;&nbsp;- addAnnotations:</option>
+	
+	<option value="//api/name/addStyleClass:">&nbsp;&nbsp;&nbsp;&nbsp;- addStyleClass:</option>
+	
+	<option value="//api/name/convertCoordinate:toPointToView:">&nbsp;&nbsp;&nbsp;&nbsp;- convertCoordinate:toPointToView:</option>
+	
+	<option value="//api/name/convertPoint:toCoordinateFromView:">&nbsp;&nbsp;&nbsp;&nbsp;- convertPoint:toCoordinateFromView:</option>
+	
+	<option value="//api/name/dequeueReusableAnnotationImageWithIdentifier:">&nbsp;&nbsp;&nbsp;&nbsp;- dequeueReusableAnnotationImageWithIdentifier:</option>
+	
+	<option value="//api/name/deselectAnnotation:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- deselectAnnotation:animated:</option>
+	
+	<option value="//api/name/emptyMemoryCache">&nbsp;&nbsp;&nbsp;&nbsp;- emptyMemoryCache</option>
+	
+	<option value="//api/name/hasStyleClass:">&nbsp;&nbsp;&nbsp;&nbsp;- hasStyleClass:</option>
+	
+	<option value="//api/name/initWithFrame:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFrame:</option>
+	
+	<option value="//api/name/initWithFrame:styleURL:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFrame:styleURL:</option>
+	
+	<option value="//api/name/metersPerPixelAtLatitude:">&nbsp;&nbsp;&nbsp;&nbsp;- metersPerPixelAtLatitude:</option>
+	
+	<option value="//api/name/removeAnnotation:">&nbsp;&nbsp;&nbsp;&nbsp;- removeAnnotation:</option>
+	
+	<option value="//api/name/removeAnnotations:">&nbsp;&nbsp;&nbsp;&nbsp;- removeAnnotations:</option>
+	
+	<option value="//api/name/removeStyleClass:">&nbsp;&nbsp;&nbsp;&nbsp;- removeStyleClass:</option>
+	
+	<option value="//api/name/resetNorth">&nbsp;&nbsp;&nbsp;&nbsp;- resetNorth</option>
+	
+	<option value="//api/name/resetPosition">&nbsp;&nbsp;&nbsp;&nbsp;- resetPosition</option>
+	
+	<option value="//api/name/selectAnnotation:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- selectAnnotation:animated:</option>
+	
+	<option value="//api/name/setCenterCoordinate:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setCenterCoordinate:animated:</option>
+	
+	<option value="//api/name/setCenterCoordinate:zoomLevel:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setCenterCoordinate:zoomLevel:animated:</option>
+	
+	<option value="//api/name/setDirection:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setDirection:animated:</option>
+	
+	<option value="//api/name/setVisibleCoordinateBounds:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setVisibleCoordinateBounds:animated:</option>
+	
+	<option value="//api/name/setVisibleCoordinateBounds:edgePadding:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setVisibleCoordinateBounds:edgePadding:animated:</option>
+	
+	<option value="//api/name/setVisibleCoordinates:count:edgePadding:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setVisibleCoordinates:count:edgePadding:animated:</option>
+	
+	<option value="//api/name/setZoomLevel:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setZoomLevel:animated:</option>
+	
+	<option value="//api/name/toggleDebug">&nbsp;&nbsp;&nbsp;&nbsp;- toggleDebug</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initializing a Map View">Initializing a Map View</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Accessing Map Properties">Accessing Map Properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Manipulating the Visible Portion of the Map">Manipulating the Visible Portion of the Map</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Converting Map Coordinates">Converting Map Coordinates</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Styling the Map">Styling the Map</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Annotating the Map">Annotating the Map</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managing Annotation Selections">Managing Annotation Selections</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Displaying the User&apos;s Location">Displaying the User&apos;s Location</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Debugging">Debugging</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/annotations">annotations</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/attributionButton">attributionButton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bundledStyleURLs">bundledStyleURLs</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/centerCoordinate">centerCoordinate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/compassView">compassView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/debugActive">debugActive</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/direction">direction</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayHeadingCalibration">displayHeadingCalibration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logoView">logoView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rotateEnabled">rotateEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrollEnabled">scrollEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectedAnnotations">selectedAnnotations</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showsUserLocation">showsUserLocation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleClasses">styleClasses</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleID">styleID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/styleURL">styleURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userLocation">userLocation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userLocationVisible">userLocationVisible</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userTrackingMode">userTrackingMode</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visibleCoordinateBounds">visibleCoordinateBounds</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/zoomEnabled">zoomEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/zoomLevel">zoomLevel</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addAnnotation:">addAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addAnnotations:">addAnnotations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addStyleClass:">addStyleClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/convertCoordinate:toPointToView:">convertCoordinate:toPointToView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/convertPoint:toCoordinateFromView:">convertPoint:toCoordinateFromView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dequeueReusableAnnotationImageWithIdentifier:">dequeueReusableAnnotationImageWithIdentifier:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deselectAnnotation:animated:">deselectAnnotation:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/emptyMemoryCache">emptyMemoryCache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasStyleClass:">hasStyleClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFrame:">initWithFrame:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFrame:styleURL:">initWithFrame:styleURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/metersPerPixelAtLatitude:">metersPerPixelAtLatitude:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAnnotation:">removeAnnotation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAnnotations:">removeAnnotations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeStyleClass:">removeStyleClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetNorth">resetNorth</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPosition">resetPosition</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectAnnotation:animated:">selectAnnotation:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCenterCoordinate:animated:">setCenterCoordinate:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCenterCoordinate:zoomLevel:animated:">setCenterCoordinate:zoomLevel:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDirection:animated:">setDirection:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setVisibleCoordinateBounds:animated:">setVisibleCoordinateBounds:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setVisibleCoordinateBounds:edgePadding:animated:">setVisibleCoordinateBounds:edgePadding:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setVisibleCoordinates:count:edgePadding:animated:">setVisibleCoordinates:count:edgePadding:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setZoomLevel:animated:">setZoomLevel:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleDebug">toggleDebug</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MGLMapView Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MGLMapView Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIView</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MGLMapView.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>An MGLMapView object provides an embeddable map interface, similar to the one provided by Apple&rsquo;s MapKit. You use this class to display map information and to manipulate the map contents from your application. You can center the map on a given coordinate, specify the size of the area you want to display, and style the features of the map to fit your application&rsquo;s use case.</p>
+
+<p>Use of MGLMapView requires a Mapbox API access token. Obtain an access token on the <a href="https://www.mapbox.com/account/apps/">Mapbox account page</a>. If you instantiate an MGLMapView from Interface Builder, rendering of the map won&rsquo;t begin until the accessToken property has been set.</p><div class="warning"><p><strong>Warning:</strong> Please note that you are responsible for getting permission to use the map data, and for ensuring your use adheres to the relevant terms of use.</p></div>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Initializing a Map View" name="task_Initializing a Map View"></a>
+						<h3 class="subsubtitle task-title">Initializing a Map View</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithFrame:">&ndash;&nbsp;initWithFrame:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithFrame:styleURL:">&ndash;&nbsp;initWithFrame:styleURL:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Accessing Map Properties" name="task_Accessing Map Properties"></a>
+						<h3 class="subsubtitle task-title">Accessing Map Properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/zoomEnabled">&nbsp;&nbsp;zoomEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollEnabled">&nbsp;&nbsp;scrollEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rotateEnabled">&nbsp;&nbsp;rotateEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/compassView">&nbsp;&nbsp;compassView</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logoView">&nbsp;&nbsp;logoView</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/attributionButton">&nbsp;&nbsp;attributionButton</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Manipulating the Visible Portion of the Map" name="task_Manipulating the Visible Portion of the Map"></a>
+						<h3 class="subsubtitle task-title">Manipulating the Visible Portion of the Map</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/centerCoordinate">&nbsp;&nbsp;centerCoordinate</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCenterCoordinate:animated:">&ndash;&nbsp;setCenterCoordinate:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/zoomLevel">&nbsp;&nbsp;zoomLevel</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setZoomLevel:animated:">&ndash;&nbsp;setZoomLevel:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCenterCoordinate:zoomLevel:animated:">&ndash;&nbsp;setCenterCoordinate:zoomLevel:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/visibleCoordinateBounds">&nbsp;&nbsp;visibleCoordinateBounds</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setVisibleCoordinateBounds:animated:">&ndash;&nbsp;setVisibleCoordinateBounds:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setVisibleCoordinateBounds:edgePadding:animated:">&ndash;&nbsp;setVisibleCoordinateBounds:edgePadding:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setVisibleCoordinates:count:edgePadding:animated:">&ndash;&nbsp;setVisibleCoordinates:count:edgePadding:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/direction">&nbsp;&nbsp;direction</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setDirection:animated:">&ndash;&nbsp;setDirection:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resetNorth">&ndash;&nbsp;resetNorth</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Converting Map Coordinates" name="task_Converting Map Coordinates"></a>
+						<h3 class="subsubtitle task-title">Converting Map Coordinates</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/convertPoint:toCoordinateFromView:">&ndash;&nbsp;convertPoint:toCoordinateFromView:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/convertCoordinate:toPointToView:">&ndash;&nbsp;convertCoordinate:toPointToView:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/metersPerPixelAtLatitude:">&ndash;&nbsp;metersPerPixelAtLatitude:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Styling the Map" name="task_Styling the Map"></a>
+						<h3 class="subsubtitle task-title">Styling the Map</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/styleID">&nbsp;&nbsp;styleID</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bundledStyleURLs">&nbsp;&nbsp;bundledStyleURLs</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/styleURL">&nbsp;&nbsp;styleURL</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/styleClasses">&nbsp;&nbsp;styleClasses</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasStyleClass:">&ndash;&nbsp;hasStyleClass:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addStyleClass:">&ndash;&nbsp;addStyleClass:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeStyleClass:">&ndash;&nbsp;removeStyleClass:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Annotating the Map" name="task_Annotating the Map"></a>
+						<h3 class="subsubtitle task-title">Annotating the Map</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/annotations">&nbsp;&nbsp;annotations</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addAnnotation:">&ndash;&nbsp;addAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addAnnotations:">&ndash;&nbsp;addAnnotations:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAnnotation:">&ndash;&nbsp;removeAnnotation:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAnnotations:">&ndash;&nbsp;removeAnnotations:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dequeueReusableAnnotationImageWithIdentifier:">&ndash;&nbsp;dequeueReusableAnnotationImageWithIdentifier:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Managing Annotation Selections" name="task_Managing Annotation Selections"></a>
+						<h3 class="subsubtitle task-title">Managing Annotation Selections</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selectedAnnotations">&nbsp;&nbsp;selectedAnnotations</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selectAnnotation:animated:">&ndash;&nbsp;selectAnnotation:animated:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deselectAnnotation:animated:">&ndash;&nbsp;deselectAnnotation:animated:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Displaying the User&apos;s Location" name="task_Displaying the User&apos;s Location"></a>
+						<h3 class="subsubtitle task-title">Displaying the User&apos;s Location</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showsUserLocation">&nbsp;&nbsp;showsUserLocation</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userLocationVisible">&nbsp;&nbsp;userLocationVisible</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userLocation">&nbsp;&nbsp;userLocation</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userTrackingMode">&nbsp;&nbsp;userTrackingMode</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayHeadingCalibration">&nbsp;&nbsp;displayHeadingCalibration</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Debugging" name="task_Debugging"></a>
+						<h3 class="subsubtitle task-title">Debugging</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/debugActive">&nbsp;&nbsp;debugActive</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleDebug">&ndash;&nbsp;toggleDebug</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/emptyMemoryCache">&ndash;&nbsp;emptyMemoryCache</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resetPosition">&ndash;&nbsp;resetPosition</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/annotations" title="annotations"></a>
+	<h3 class="subsubtitle method-title">annotations</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The complete list of annotations associated with the receiver. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSArray&lt;id&lt;MGLAnnotation&gt; &gt; *annotations</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The complete list of annotations associated with the receiver. (read-only)</p>
+
+<p>The objects in this array must adopt the <a href="../Protocols/MGLAnnotation.html">MGLAnnotation</a> protocol. If no annotations are associated with the map view, the value of this property is <code>nil</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/attributionButton" title="attributionButton"></a>
+	<h3 class="subsubtitle method-title">attributionButton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The button shown in the lower-right of the map which when pressed displays the map attribution information.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIButton *attributionButton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The button shown in the lower-right of the map which when pressed displays the map attribution information.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/bundledStyleURLs" title="bundledStyleURLs"></a>
+	<h3 class="subsubtitle method-title">bundledStyleURLs</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>URLs of the styles bundled with the library.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray&lt;NSURL*&gt; *bundledStyleURLs</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>URLs of the styles bundled with the library.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/centerCoordinate" title="centerCoordinate"></a>
+	<h3 class="subsubtitle method-title">centerCoordinate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The map coordinate at the center of the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CLLocationCoordinate2D centerCoordinate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The map coordinate at the center of the map view.</p>
+
+<p>Changing the value in this property centers the map on the new coordinate without changing the current zoom level.</p>
+
+<p>Changing the value of this property updates the map view immediately. If you want to animate the change, use the <a href="#//api/name/setCenterCoordinate:animated:">setCenterCoordinate:animated:</a> method instead.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/compassView" title="compassView"></a>
+	<h3 class="subsubtitle method-title">compassView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The compass image view shown in the upper-right when the map is rotated.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIImageView *compassView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The compass image view shown in the upper-right when the map is rotated.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/debugActive" title="debugActive"></a>
+	<h3 class="subsubtitle method-title">debugActive</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value that determines whether map debugging information is shown.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isDebugActive) BOOL debugActive</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value that determines whether map debugging information is shown.</p>
+
+<p>The default value of this property is <code>NO</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/direction" title="direction"></a>
+	<h3 class="subsubtitle method-title">direction</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The heading of the map (measured in degrees) relative to true north.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CLLocationDirection direction</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The heading of the map (measured in degrees) relative to true north.</p>
+
+<p>The value <code>0</code> means that the top edge of the map view corresponds to true north. The value <code>90</code> means the top of the map is pointing due east. The value <code>180</code> means the top of the map points due south, and so on.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayHeadingCalibration" title="displayHeadingCalibration"></a>
+	<h3 class="subsubtitle method-title">displayHeadingCalibration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether the map view should display a heading calibration alert when necessary. The default value is <code>YES</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL displayHeadingCalibration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether the map view should display a heading calibration alert when necessary. The default value is <code>YES</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logoView" title="logoView"></a>
+	<h3 class="subsubtitle method-title">logoView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The Mapbox logo image view shown in the lower-left of the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) UIImageView *logoView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The Mapbox logo image view shown in the lower-left of the map.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rotateEnabled" title="rotateEnabled"></a>
+	<h3 class="subsubtitle method-title">rotateEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value that determines whether the user may rotate the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isRotateEnabled) BOOL rotateEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value that determines whether the user may rotate the map.</p>
+
+<p>This property controls only user interactions with the map. If you set the value of this property to <code>NO</code>, you may still rotate the map programmatically.</p>
+
+<p>The default value of this property is <code>YES</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/scrollEnabled" title="scrollEnabled"></a>
+	<h3 class="subsubtitle method-title">scrollEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value that determines whether the user may scroll around the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isScrollEnabled) BOOL scrollEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value that determines whether the user may scroll around the map.</p>
+
+<p>This property controls only user interactions with the map. If you set the value of this property to <code>NO</code>, you may still change the map location programmatically.</p>
+
+<p>The default value of this property is <code>YES</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/selectedAnnotations" title="selectedAnnotations"></a>
+	<h3 class="subsubtitle method-title">selectedAnnotations</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="#//api/name/annotations">annotations</a> that are currently selected.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSArray&lt;id&lt;MGLAnnotation&gt; &gt; *selectedAnnotations</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The <a href="#//api/name/annotations">annotations</a> that are currently selected.</p>
+
+<p>Assigning a new array to this property selects only the first annotation in the array.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showsUserLocation" title="showsUserLocation"></a>
+	<h3 class="subsubtitle method-title">showsUserLocation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value indicating whether the map may display the user location.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL showsUserLocation</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value indicating whether the map may display the user location.</p>
+
+<p>This property does not indicate whether the user’s position is actually visible on the map, only whether the map view is allowed to display it. To determine whether the user’s position is visible, use the <a href="#//api/name/userLocationVisible">userLocationVisible</a> property. The default value of this property is <code>NO</code>.</p>
+
+<p>Setting this property to <code>YES</code> causes the map view to use the Core Location framework to find the current location. As long as this property is <code>YES</code>, the map view continues to track the user’s location and update it periodically.</p>
+
+<p>On iOS 8 and above, your app must specify a value for <code>NSLocationWhenInUseUsageDescription</code> or <code>NSLocationAlwaysUsageDescription</code> in its <code>Info.plist</code> to satisfy the requirements of the underlying Core Location framework when enabling this property.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/styleClasses" title="styleClasses"></a>
+	<h3 class="subsubtitle method-title">styleClasses</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Currently active style classes, represented as an array of string identifiers.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) NSArray&lt;NSString*&gt; *styleClasses</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Currently active style classes, represented as an array of string identifiers.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/styleID" title="styleID"></a>
+	<h3 class="subsubtitle method-title">styleID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Mapbox ID of the style currently displayed in the receiver, or <code>nil</code> if the style does not have an ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, nullable) NSString *styleID</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Mapbox ID of the style currently displayed in the receiver, or <code>nil</code> if the style does not have an ID.</p>
+
+<p>The style may lack an ID if it is located at an HTTP, HTTPS, or local file URL. Use <a href="#//api/name/styleURL"><code>styleURL</code></a> to get the URL in these cases.</p>
+
+<p>To display the default style, set this property to <code>nil</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/styleURL" title="styleURL"></a>
+	<h3 class="subsubtitle method-title">styleURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>URL of the style currently displayed in the receiver.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, null_resettable) NSURL *styleURL</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>URL of the style currently displayed in the receiver.</p>
+
+<p>The URL may be a full HTTP or HTTPS URL or a Mapbox URL indicating the style’s map ID (<code>mapbox://&lt;user.style&gt;</code>).</p>
+
+<p>To display the default style, set this property to <code>nil</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userLocation" title="userLocation"></a>
+	<h3 class="subsubtitle method-title">userLocation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the annotation object indicating the user’s current location.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) MGLUserLocation *userLocation</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the annotation object indicating the user’s current location.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userLocationVisible" title="userLocationVisible"></a>
+	<h3 class="subsubtitle method-title">userLocationVisible</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value indicating whether the device’s current location is visible in the map view. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isUserLocationVisible) BOOL userLocationVisible</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value indicating whether the device’s current location is visible in the map view. (read-only)</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userTrackingMode" title="userTrackingMode"></a>
+	<h3 class="subsubtitle method-title">userTrackingMode</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The mode used to track the user location.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) MGLUserTrackingMode userTrackingMode</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The mode used to track the user location.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/visibleCoordinateBounds" title="visibleCoordinateBounds"></a>
+	<h3 class="subsubtitle method-title">visibleCoordinateBounds</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The coordinate bounds visible in the receiver’s viewport.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) MGLCoordinateBounds visibleCoordinateBounds</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The coordinate bounds visible in the receiver’s viewport.</p>
+
+<p>Changing the value of this property updates the receiver immediately. If you want to animate the change, call <a href="#//api/name/setVisibleCoordinateBounds:animated:"><code>setVisibleCoordinateBounds:animated:</code></a> instead.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/zoomEnabled" title="zoomEnabled"></a>
+	<h3 class="subsubtitle method-title">zoomEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A Boolean value that determines whether the user may zoom the map.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isZoomEnabled) BOOL zoomEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A Boolean value that determines whether the user may zoom the map.</p>
+
+<p>This property controls only user interactions with the map. If you set the value of this property to <code>NO</code>, you may still change the map zoom programmatically.</p>
+
+<p>The default value of this property is <code>YES</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/zoomLevel" title="zoomLevel"></a>
+	<h3 class="subsubtitle method-title">zoomLevel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The zoom level of the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) double zoomLevel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The zoom level of the map view.</p>
+
+<p>Changing the value in this property zooms the map in or out without changing the center coordinate. At zoom level 0, tiles cover the entire world map; at zoom level 1, tiles cover &frac14; of the world; at zoom level 2, tiles cover 1/16 of the world, and so on.</p>
+
+<p>Changing the value of this property updates the map view immediately. If you want to animate the change, use the <a href="#//api/name/setZoomLevel:animated:">setZoomLevel:animated:</a> method instead.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addAnnotation:" title="addAnnotation:"></a>
+	<h3 class="subsubtitle method-title">addAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds the specified annotation to the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation object to add to the receiver. This object must conform to the <a href="../Protocols/MGLAnnotation.html">MGLAnnotation</a> protocol. The map view retains the specified object.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds the specified annotation to the map view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addAnnotations:" title="addAnnotations:"></a>
+	<h3 class="subsubtitle method-title">addAnnotations:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds an array of annotation objects to the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addAnnotations:(NSArray&lt;id&lt;MGLAnnotation&gt; &gt; *)<em>annotations</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotations</em></dt>
+			<dd><p>An array of annotation objects. Each object in the array must conform to the <a href="../Protocols/MGLAnnotation.html">MGLAnnotation</a> protocol. The map view retains the individual annotation objects.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Adds an array of annotation objects to the map view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addStyleClass:" title="addStyleClass:"></a>
+	<h3 class="subsubtitle method-title">addStyleClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Activates the style class with the given identifier.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addStyleClass:(NSString *)<em>styleClass</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>styleClass</em></dt>
+			<dd><p>The style class to activate.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Activates the style class with the given identifier.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/convertCoordinate:toPointToView:" title="convertCoordinate:toPointToView:"></a>
+	<h3 class="subsubtitle method-title">convertCoordinate:toPointToView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Converts a map coordinate to a point in the specified view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGPoint)convertCoordinate:(CLLocationCoordinate2D)<em>coordinate</em> toPointToView:(nullable UIView *)<em>view</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>coordinate</em></dt>
+			<dd><p>The map coordinate for which you want to find the corresponding point.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view in whose coordinate system you want to locate the specified map coordinate. If this parameter is <code>nil</code>, the returned point is specified in the window’s coordinate system. If <code>view</code> is not <code>nil</code>, it must belong to the same window as the map view.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The point (in the appropriate view or window coordinate system) corresponding to the specified <a href="#//api/name/latitude">latitude</a> and <a href="#//api/name/longitude">longitude</a> value.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Converts a map coordinate to a point in the specified view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/convertPoint:toCoordinateFromView:" title="convertPoint:toCoordinateFromView:"></a>
+	<h3 class="subsubtitle method-title">convertPoint:toCoordinateFromView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Converts a point in the specified view’s coordinate system to a map coordinate.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CLLocationCoordinate2D)convertPoint:(CGPoint)<em>point</em> toCoordinateFromView:(nullable UIView *)<em>view</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>point</em></dt>
+			<dd><p>The point you want to convert.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view that serves as the reference coordinate system for the <code>point</code> parameter.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The map coordinate at the specified point.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Converts a point in the specified view’s coordinate system to a map coordinate.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dequeueReusableAnnotationImageWithIdentifier:" title="dequeueReusableAnnotationImageWithIdentifier:"></a>
+	<h3 class="subsubtitle method-title">dequeueReusableAnnotationImageWithIdentifier:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a reusable annotation image object located by its identifier.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (nullable MGLAnnotationImage *)dequeueReusableAnnotationImageWithIdentifier:(NSString *)<em>identifier</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>identifier</em></dt>
+			<dd><p>A string identifying the annotation image to be reused. This string is the same one you specify when initially returning the annotation image object using the mapView:imageForAnnotation: method.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An annotation image object with the specified identifier, or <code>nil</code> if no such object exists in the reuse queue.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a reusable annotation image object located by its identifier.</p>
+
+<p>For performance reasons, you should generally reuse MGLAnnotationImage objects for <a href="#//api/name/annotations">annotations</a> in your map views. Dequeueing saves time and memory during performance-critical operations such as scrolling.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deselectAnnotation:animated:" title="deselectAnnotation:animated:"></a>
+	<h3 class="subsubtitle method-title">deselectAnnotation:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deselects the specified annotation and hides its callout view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)deselectAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation object to deselect.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>If <code>YES</code>, the callout view is animated offscreen.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Deselects the specified annotation and hides its callout view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/emptyMemoryCache" title="emptyMemoryCache"></a>
+	<h3 class="subsubtitle method-title">emptyMemoryCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Empties the in-memory tile cache.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)emptyMemoryCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Empties the in-memory tile cache.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasStyleClass:" title="hasStyleClass:"></a>
+	<h3 class="subsubtitle method-title">hasStyleClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a Boolean value indicating whether the style class with the given identifier is currently active.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasStyleClass:(NSString *)<em>styleClass</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>styleClass</em></dt>
+			<dd><p>The style class to query for.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Whether the style class is currently active.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a Boolean value indicating whether the style class with the given identifier is currently active.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithFrame:" title="initWithFrame:"></a>
+	<h3 class="subsubtitle method-title">initWithFrame:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns a newly allocated map view with the specified frame and the default style.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frame</em></dt>
+			<dd><p>The frame for the view, measured in points.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized map view.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes and returns a newly allocated map view with the specified frame and the default style.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithFrame:styleURL:" title="initWithFrame:styleURL:"></a>
+	<h3 class="subsubtitle method-title">initWithFrame:styleURL:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns a newly allocated map view with the specified frame and style URL.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em> styleURL:(nullable NSURL *)<em>styleURL</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frame</em></dt>
+			<dd><p>The frame for the view, measured in points.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>styleURL</em></dt>
+			<dd><p>The map style URL to use. Can be either an HTTP/HTTPS URL or a Mapbox map ID style URL (<code>mapbox://&lt;user.style&gt;</code>). Specify <code>nil</code> for the default style.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized map view.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes and returns a newly allocated map view with the specified frame and style URL.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/metersPerPixelAtLatitude:" title="metersPerPixelAtLatitude:"></a>
+	<h3 class="subsubtitle method-title">metersPerPixelAtLatitude:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the distance spanned by one pixel at the specified <a href="#//api/name/latitude">latitude</a> and current zoom level.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CLLocationDistance)metersPerPixelAtLatitude:(CLLocationDegrees)<em>latitude</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>latitude</em></dt>
+			<dd><p>The <a href="#//api/name/latitude">latitude</a> for which to return the value.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The distance (in meters) spanned by a single pixel.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the distance spanned by one pixel at the specified <a href="#//api/name/latitude">latitude</a> and current zoom level.</p>
+
+<p>The distance between pixels decreases as the <a href="#//api/name/latitude">latitude</a> approaches the poles. This relationship parallels the relationship between longitudinal coordinates at different latitudes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAnnotation:" title="removeAnnotation:"></a>
+	<h3 class="subsubtitle method-title">removeAnnotation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes the specified annotation object from the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation object to remove. This object must conform to the <a href="../Protocols/MGLAnnotation.html">MGLAnnotation</a> protocol.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes the specified annotation object from the map view.</p>
+
+<p>Removing an annotation object disassociates it from the map view entirely, preventing it from being displayed on the map. Thus, you would typically call this method only when you want to hide or delete a given annotation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAnnotations:" title="removeAnnotations:"></a>
+	<h3 class="subsubtitle method-title">removeAnnotations:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes an array of annotation objects from the map view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAnnotations:(NSArray&lt;id&lt;MGLAnnotation&gt; &gt; *)<em>annotations</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotations</em></dt>
+			<dd><p>The array of <a href="#//api/name/annotations">annotations</a> to remove. Objects in the array must conform to the <a href="../Protocols/MGLAnnotation.html">MGLAnnotation</a> protocol.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes an array of annotation objects from the map view.</p>
+
+<p>Removing annotation objects disassociates them from the map view entirely, preventing them from being displayed on the map. Thus, you would typically call this method only when you want to hide or delete the specified <a href="#//api/name/annotations">annotations</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeStyleClass:" title="removeStyleClass:"></a>
+	<h3 class="subsubtitle method-title">removeStyleClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deactivates the style class with the given identifier.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeStyleClass:(NSString *)<em>styleClass</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>styleClass</em></dt>
+			<dd><p>The style class to deactivate.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Deactivates the style class with the given identifier.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetNorth" title="resetNorth"></a>
+	<h3 class="subsubtitle method-title">resetNorth</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Resets the map rotation to a northern heading.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)resetNorth</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Resets the map rotation to a northern heading.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetPosition" title="resetPosition"></a>
+	<h3 class="subsubtitle method-title">resetPosition</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Resets the map to the minimum zoom level, a center coordinate of (0, 0), and a northern heading.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resetPosition</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Resets the map to the minimum zoom level, a center coordinate of (0, 0), and a northern heading.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/selectAnnotation:animated:" title="selectAnnotation:animated:"></a>
+	<h3 class="subsubtitle method-title">selectAnnotation:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Selects the specified annotation and displays a callout view for it.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)selectAnnotation:(id&lt;MGLAnnotation&gt;)<em>annotation</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>annotation</em></dt>
+			<dd><p>The annotation object to select.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>If <code>YES</code>, the callout view is animated into position.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Selects the specified annotation and displays a callout view for it.</p>
+
+<p>If the specified annotation is not onscreen, this method has no effect.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCenterCoordinate:animated:" title="setCenterCoordinate:animated:"></a>
+	<h3 class="subsubtitle method-title">setCenterCoordinate:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the center coordinate of the map and optionally animates the change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCenterCoordinate:(CLLocationCoordinate2D)<em>coordinate</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>coordinate</em></dt>
+			<dd><p>The new center coordinate for the map.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> if you want the map view to scroll to the new location or <code>NO</code> if you want the map to display the new location immediately.</p>
+
+<p>Changing the center coordinate centers the map on the new coordinate without changing the current zoom level.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the center coordinate of the map and optionally animates the change.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCenterCoordinate:zoomLevel:animated:" title="setCenterCoordinate:zoomLevel:animated:"></a>
+	<h3 class="subsubtitle method-title">setCenterCoordinate:zoomLevel:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the center coordinate and zoom level of the and optionally animates the change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCenterCoordinate:(CLLocationCoordinate2D)<em>centerCoordinate</em> zoomLevel:(double)<em>zoomLevel</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>centerCoordinate</em></dt>
+			<dd><p>The new center coordinate for the map.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>zoomLevel</em></dt>
+			<dd><p>The new zoom level for the map.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> if you want the map view to animate scrolling and zooming to the new location or <code>NO</code> if you want the map to display the new location immediately.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the center coordinate and zoom level of the and optionally animates the change.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setDirection:animated:" title="setDirection:animated:"></a>
+	<h3 class="subsubtitle method-title">setDirection:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the heading of the map and optionally animates the changes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setDirection:(CLLocationDirection)<em>direction</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>direction</em></dt>
+			<dd><p>The heading of the map (measured in degrees) relative to true north.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> if you want the map view to animate the change to the new heading or <code>NO</code> if you want the map to display the new heading immediately.</p>
+
+<p>Changing the heading rotates the map without changing the current center coordinate or zoom level.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the heading of the map and optionally animates the changes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setVisibleCoordinateBounds:animated:" title="setVisibleCoordinateBounds:animated:"></a>
+	<h3 class="subsubtitle method-title">setVisibleCoordinateBounds:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the receiver’s viewport to fit the given coordinate bounds, optionally animating the change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setVisibleCoordinateBounds:(MGLCoordinateBounds)<em>bounds</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bounds</em></dt>
+			<dd><p>The bounds that the viewport will show in its entirety.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> to animate the change by smoothly scrolling and zooming or <code>NO</code> to immediately display the given bounds.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the receiver’s viewport to fit the given coordinate bounds, optionally animating the change.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setVisibleCoordinateBounds:edgePadding:animated:" title="setVisibleCoordinateBounds:edgePadding:animated:"></a>
+	<h3 class="subsubtitle method-title">setVisibleCoordinateBounds:edgePadding:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the receiver’s viewport to fit the given coordinate bounds and optionally some additional padding on each side.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setVisibleCoordinateBounds:(MGLCoordinateBounds)<em>bounds</em> edgePadding:(UIEdgeInsets)<em>insets</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bounds</em></dt>
+			<dd><p>The bounds that the viewport will show in its entirety.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>insets</em></dt>
+			<dd><p>The minimum padding (in screen points) that will be visible around the given coordinate bounds.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> to animate the change by smoothly scrolling and zooming or <code>NO</code> to immediately display the given bounds.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the receiver’s viewport to fit the given coordinate bounds and optionally some additional padding on each side.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setVisibleCoordinates:count:edgePadding:animated:" title="setVisibleCoordinates:count:edgePadding:animated:"></a>
+	<h3 class="subsubtitle method-title">setVisibleCoordinates:count:edgePadding:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the receiver’s viewport to fit all of the given coordinates and optionally some additional padding on each side.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setVisibleCoordinates:(CLLocationCoordinate2D *)<em>coordinates</em> count:(NSUInteger)<em>count</em> edgePadding:(UIEdgeInsets)<em>insets</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>coordinates</em></dt>
+			<dd><p>The coordinates that the viewport will show.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>count</em></dt>
+			<dd><p>The number of coordinates. This number must not be greater than the number of elements in <code>coordinates</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>insets</em></dt>
+			<dd><p>The minimum padding (in screen points) that will be visible around the given coordinate bounds.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> to animate the change by smoothly scrolling and zooming or <code>NO</code> to immediately display the given bounds.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the receiver’s viewport to fit all of the given coordinates and optionally some additional padding on each side.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setZoomLevel:animated:" title="setZoomLevel:animated:"></a>
+	<h3 class="subsubtitle method-title">setZoomLevel:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Changes the zoom level of the map and optionally animates the change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setZoomLevel:(double)<em>zoomLevel</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>zoomLevel</em></dt>
+			<dd><p>The new zoom level for the map.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Specify <code>YES</code> if you want the map view to animate the change to the new zoom level or <code>NO</code> if you want the map to display the new zoom level immediately.</p>
+
+<p>Changing the zoom level scales the map without changing the current center coordinate. At zoom level 0, tiles cover the entire world map; at zoom level 1, tiles cover &frac14; of the world; at zoom level 2, tiles cover 1/16 of the world, and so on.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Changes the zoom level of the map and optionally animates the change.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleDebug" title="toggleDebug"></a>
+	<h3 class="subsubtitle method-title">toggleDebug</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Toggle the current value of <a href="#//api/name/debugActive">debugActive</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleDebug</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Toggle the current value of <a href="#//api/name/debugActive">debugActive</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MGLMapView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Mapbox. All rights reserved. (Last updated: 2015-08-24)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

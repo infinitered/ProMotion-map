@@ -1,0 +1,1 @@
+../../../Mapbox-iOS-SDK/Headers/MGLShape.h

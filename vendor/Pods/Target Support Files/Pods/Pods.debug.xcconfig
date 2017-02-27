@@ -1,0 +1,7 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Mapbox-iOS-SDK"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Mapbox-iOS-SDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Mapbox-iOS-SDK"
+OTHER_CPLUSPLUSFLAGS = -std=gnu++11 -stdlib=libc++ -std=gnu++11 -stdlib=libc++
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Mapbox" -l"Mapbox-iOS-SDK" -l"c++" -l"sqlite3" -l"z" -framework "CoreLocation" -framework "CoreTelephony" -framework "GLKit" -framework "ImageIO" -framework "MobileCoreServices" -framework "QuartzCore" -framework "SystemConfiguration"
+PODS_ROOT = ${SRCROOT}/Pods
