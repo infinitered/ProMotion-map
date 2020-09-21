@@ -52,7 +52,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   it "should select an annotation" do
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation map_screen.annotations.first
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
@@ -60,7 +60,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   it "should select an annotation by index" do
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation_at 2
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
@@ -69,7 +69,7 @@ describe "ProMotion::TestMapScreen functionality" do
   end
 
   it "should select another annotation and check that the title is correct" do
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation map_screen.annotations[1]
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
@@ -88,7 +88,7 @@ describe "ProMotion::TestMapScreen functionality" do
 
     map_screen.deselect_annotations
     wait 0.75 do
-      map_screen.selected_annotations.should == nil
+      map_screen.selected_annotations.should == []
     end
   end
 
@@ -136,7 +136,7 @@ describe "ProMotion::TestMapScreen functionality" do
 
   it "should select an image annotation" do
     add_image_annotation
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation map_screen.annotations.last
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
@@ -145,7 +145,7 @@ describe "ProMotion::TestMapScreen functionality" do
 
   it "should select an image annotation by index" do
     add_image_annotation
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation_at 5
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
@@ -155,7 +155,7 @@ describe "ProMotion::TestMapScreen functionality" do
 
   it "should select an image annotation and check that the title is correct" do
     add_image_annotation
-    map_screen.selected_annotations.should == nil
+    map_screen.selected_annotations.should == []
     map_screen.select_annotation map_screen.annotations[5]
     wait 0.75 do
       map_screen.selected_annotations.count.should == 1
