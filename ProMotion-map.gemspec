@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |spec|
   spec.name          = "ProMotion-map"
-  spec.version       = "0.7.0"
+  spec.version       = "0.8.0"
   spec.authors       = ["Mark Rickert", "Jamon Holmgren"]
   spec.email         = ["mark@mohawkapps.com", "jamon@clearsightstudio.com"]
   spec.description   = %q{Adds PM::MapScreen support to ProMotion.}
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ProMotion", "~> 2.0"
+  spec.add_dependency "ProMotion", "~> 3.0"
   spec.add_development_dependency "motion-stump", "~> 0.3"
   spec.add_development_dependency "motion-redgreen", "~> 0.1"
   spec.add_development_dependency "rake"
